@@ -4,6 +4,8 @@
 
 Este proyecto consiste en una versión detallada de mi curriculum vitae en la web, desarrollada utilizando Astro, Tailwind CSS, CSS3 y JavaScript. Se emplea JSON para la organización y almacenamiento de la información.
 
+La aplicación ahora incorpora una sección de idiomas con indicadores visuales del nivel de fluidez para enriquecer la información presentada.
+
 La inspiración para este proyecto proviene del portafolio de Bartosz Jarocki en cv.jarocki.me, a quien se le otorga el crédito correspondiente. [aquí](https://cv.jarocki.me/).
 
 ## Tecnologías Utilizadas
@@ -21,6 +23,7 @@ La inspiración para este proyecto proviene del portafolio de Bartosz Jarocki en
 - Estilo Personalizado: Tailwind CSS permite una personalización extensiva, asegurando un diseño único y visualmente atractivo.
 - Carga Eficiente: El framework de Astro optimiza los tiempos de carga, mejorando el rendimiento para los usuarios.
 - Modo oscuro: interfaz adaptable que puede alternarse para una experiencia más cómoda en entornos con poca luz.
+- Sección de Idiomas: muestra las lenguas dominadas con indicadores de progreso para una lectura rápida.
 
 ## Uso
 

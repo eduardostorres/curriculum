@@ -1,0 +1,41 @@
+---
+import Section from "../Section.astro";
+import { languages } from "@cv";
+
+const fluencyMap: Record<string, number> = {
+  "Native speaker": 100,
+  "Professional working proficiency": 80,
+  "Full professional proficiency": 90,
+  "Limited working proficiency": 60,
+  "Elementary proficiency": 40,
+};
+
+const getLevel = (fluency: string) => fluencyMap[fluency] ?? 50;
+---
+
+<Section title="Idiomas">
+  <ul class="flex flex-col gap-4 mt-4">
+    {
+      languages.map(({ language, fluency }) => (
+        <li>
+          <div class="flex justify-between mb-1">
+            <span class="font-medium text-gray-700 dark:text-gray-300">{language}</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400">{fluency}</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div
+              class="bg-gray-600 h-2.5 rounded-full dark:bg-gray-300"
+              style={`width: ${getLevel(fluency)}%`}
+            />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<style>
+  li div div {
+    transition: width 0.3s ease;
+  }
+</style>
