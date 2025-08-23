@@ -5,7 +5,7 @@ import { work } from "@cv";
 ---
 
 <Section title="Experiencia laboral">
-  <ul class="relative border-s border-gray-200">
+  <ul class="relative border-s border-gray-200 dark:border-gray-700">
     {
       work.map(({ name, startDate, endDate, position, summary, url }) => {
         const startYear = new Date(startDate).getFullYear();
@@ -14,12 +14,12 @@ import { work } from "@cv";
 
         return (
           <li class="mb-5 ms-4">
-            <div class="absolute w-3 h-3 bg-gray-500 rounded-full mt-2 -start-1.5 border border-gray-500" />
-            <h3 class="font-bold text-gray-500 text-base mt-5 font-sans">
+            <div class="absolute w-3 h-3 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 -start-1.5 border border-gray-500 dark:border-gray-400" />
+            <h3 class="font-bold text-gray-500 dark:text-gray-400 text-base mt-5 font-sans">
               {position} en <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
             </h3>
             <time
-              class="font-semibold text-gray-400 text-base min-w-25 cursor-default"
+              class="font-semibold text-gray-400 dark:text-gray-500 text-base min-w-25 cursor-default"
               datetime={startDate}
               data-title={startDate}
             >
@@ -27,13 +27,13 @@ import { work } from "@cv";
             </time>
             {" - "}
             <time
-              class="font-semibold text-gray-400 text-base min-w-25 cursor-default"
+              class="font-semibold text-gray-400 dark:text-gray-500 text-base min-w-25 cursor-default"
               datetime={endDate}
               data-title={endDate}
             >
               {endYear}
             </time>
-            <p class="text-sm mt-2">{summary}</p>
+            <p class="text-sm mt-2 dark:text-gray-300">{summary}</p>
           </li>
         );
       })
