@@ -20,6 +20,7 @@ La inspiración para este proyecto proviene del portafolio de Bartosz Jarocki en
 - Contenido Dinámico: El contenido se carga y actualiza dinámicamente utilizando JavaScript, ofreciendo una experiencia de usuario fluida.
 - Estilo Personalizado: Tailwind CSS permite una personalización extensiva, asegurando un diseño único y visualmente atractivo.
 - Carga Eficiente: El framework de Astro optimiza los tiempos de carga, mejorando el rendimiento para los usuarios.
+- Modo oscuro: interfaz adaptable que puede alternarse para una experiencia más cómoda en entornos con poca luz.
 
 ## Uso
 

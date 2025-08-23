@@ -4,24 +4,24 @@ import { education } from "@cv"
 ---
 
 <Section title="Educación">
-  <ul class="flex flex-col gap-4" >
-    {
-      education.map(
-        ({ institution, area, summary }) => {
+    <ul class="flex flex-col gap-4" >
+      {
+        education.map(
+          ({ institution, area, summary }) => {
 
           return (
             <li>
               <article>
                 <header class="flex">
-                  <div>
-                    <h3 class="font-bold mt-2 text-gray-500 font-sans">{institution}</h3>
-                    <p class="font-semibold text-gray-400 text-base">{area}</p>
-                  </div>
+                    <div>
+                      <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{institution}</h3>
+                      <p class="font-semibold text-gray-400 dark:text-gray-500 text-base">{area}</p>
+                    </div>
                 </header>
 
-                <footer>
-                  <p class="text-sm mt-2">{summary}</p>
-                </footer>
+                  <footer>
+                    <p class="text-sm mt-2 dark:text-gray-300">{summary}</p>
+                  </footer>
               </article>
             </li>
           )
