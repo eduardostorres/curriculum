@@ -8,17 +8,17 @@ import { education } from "@cv";
     {
       education.map(({ institution, area, summary }, index) => {
         return (
-          <li>
+          <li class="ds-card p-5">
             <article>
               <header class="flex">
                 <div>
-                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{institution}</h3>
-                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base" data-i18n={`education.items.${index}.area`}>{area}</p>
+                  <h3 class="ds-item-title text-lg">{institution}</h3>
+                  <p class="ds-item-meta mt-1 text-sm" data-i18n={`education.items.${index}.area`}>{area}</p>
                 </div>
               </header>
 
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`education.items.${index}.summary`}>{summary}</p>
+                <p class="ds-copy mt-3 text-sm" data-i18n={`education.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>

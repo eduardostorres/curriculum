@@ -4,20 +4,20 @@ import { courses } from "@cv";
 ---
 
 <Section title="Cursos" translationKey="sections.courses">
-  <ul class="flex flex-col gap-4 mb-4">
+  <ul class="mb-4 flex flex-col gap-4">
     {
       courses.map(({ platform, summary, typePlatform }, index) => {
         return (
-          <li>
+          <li class="ds-card p-5">
             <article>
               <header class="flex">
                 <div>
-                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 text-xl font-sans">{platform}</h3>
-                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base" data-i18n={`courses.items.${index}.typePlatform`}>{typePlatform}</p>
+                  <h3 class="ds-item-title text-lg">{platform}</h3>
+                  <p class="ds-item-meta mt-1 text-sm" data-i18n={`courses.items.${index}.typePlatform`}>{typePlatform}</p>
                 </div>
               </header>
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`courses.items.${index}.summary`}>{summary}</p>
+                <p class="ds-copy mt-3 text-sm" data-i18n={`courses.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>

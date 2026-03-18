@@ -220,13 +220,13 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       });
     </script>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <body class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),_transparent_42%),linear-gradient(180deg,_#f8fafc_0%,_#eef2ff_100%)] text-gray-900 transition-colors duration-300 dark:bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.16),_transparent_35%),linear-gradient(180deg,_#020617_0%,_#0f172a_100%)] dark:text-gray-100">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <div class="header-tooltip-wrapper">
         <button
           type="button"
           id="language-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="ds-control"
           aria-label="Switch to English"
           title="Switch to English"
           data-tooltip-content="Switch to English"
@@ -239,7 +239,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         <button
           type="button"
           id="theme-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="ds-control"
           aria-label="Switch to dark mode"
           title="Switch to dark mode"
           data-tooltip-content="Switch to dark mode"
@@ -281,13 +281,144 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 </html>
 
 <style is:global>
-  html {
-    font-family: monospace;
+  :root {
+    color-scheme: light;
+    --ds-surface: rgba(255, 255, 255, 0.78);
+    --ds-surface-strong: rgba(255, 255, 255, 0.92);
+    --ds-border: rgba(148, 163, 184, 0.26);
+    --ds-text: #0f172a;
+    --ds-muted: #475569;
+    --ds-soft: #64748b;
+    --ds-accent: #2563eb;
+    --ds-accent-soft: rgba(37, 99, 235, 0.12);
+    --ds-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+    font-family: "Raleway Variable", ui-sans-serif, system-ui, sans-serif;
   }
-</style>
 
+  html.dark {
+    color-scheme: dark;
+    --ds-surface: rgba(15, 23, 42, 0.78);
+    --ds-surface-strong: rgba(15, 23, 42, 0.92);
+    --ds-border: rgba(148, 163, 184, 0.18);
+    --ds-text: #e2e8f0;
+    --ds-muted: #cbd5e1;
+    --ds-soft: #94a3b8;
+    --ds-accent: #60a5fa;
+    --ds-accent-soft: rgba(96, 165, 250, 0.14);
+    --ds-shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
+  }
 
-<style is:global>
+  body {
+    font-family: "Raleway Variable", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .ds-control,
+  .ds-card,
+  .ds-section {
+    backdrop-filter: blur(16px);
+  }
+
+  .ds-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--ds-border);
+    background: var(--ds-surface);
+    color: var(--ds-text);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: var(--ds-shadow);
+    transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  }
+
+  .ds-control:hover {
+    transform: translateY(-1px);
+    background: var(--ds-surface-strong);
+  }
+
+  .ds-section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 72rem;
+    border: 1px solid var(--ds-border);
+    border-radius: 1.75rem;
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+    padding: 1.5rem;
+  }
+
+  .ds-heading {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ds-text);
+  }
+
+  .ds-subtle {
+    color: var(--ds-muted);
+  }
+
+  .ds-card {
+    border: 1px solid var(--ds-border);
+    border-radius: 1.25rem;
+    background: var(--ds-surface-strong);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  }
+
+  .ds-item-title {
+    color: var(--ds-text);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .ds-item-meta {
+    color: var(--ds-soft);
+    font-weight: 600;
+  }
+
+  .ds-copy {
+    color: var(--ds-muted);
+    line-height: 1.7;
+  }
+
+  .ds-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--ds-border);
+    background: var(--ds-accent-soft);
+    color: var(--ds-text);
+    padding: 0.55rem 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .ds-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border: 1px solid var(--ds-border);
+    background: var(--ds-surface-strong);
+    color: var(--ds-soft);
+    box-shadow: var(--ds-shadow);
+    transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+  }
+
+  .ds-icon-button:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--ds-accent) 35%, var(--ds-border));
+    color: var(--ds-accent);
+    background: var(--ds-surface);
+  }
+
   .header-tooltip-wrapper {
     position: relative;
   }
@@ -299,13 +430,13 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     top: calc(100% + 0.5rem);
     z-index: 60;
     white-space: nowrap;
-    border-radius: 0.375rem;
-    background: rgb(15 23 42);
-    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    background: var(--ds-text);
+    padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
     color: white;
     opacity: 0;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    box-shadow: var(--ds-shadow);
     transition: opacity 0.2s ease;
   }
 
@@ -314,8 +445,9 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     opacity: 1;
   }
 
-
-  .dark .header-tooltip-wrapper .header-tooltip {
-    background: rgb(51 65 85);
+  @media (min-width: 768px) {
+    .ds-section {
+      padding: 2rem;
+    }
   }
 </style>

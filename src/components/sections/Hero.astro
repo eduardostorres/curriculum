@@ -19,21 +19,19 @@ const SOCIAL_ICONS: SocialIcon = {
 ---
 
 <Section>
-  <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
-    <div class="flex flex-col items-center lg:items-start">
-      <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
-      <h2
-        class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
-        data-i18n="hero.label"
-      >
+  <div class="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row">
+    <div class="flex max-w-3xl flex-col items-center text-center lg:items-start lg:text-left">
+      <span class="ds-chip mb-4">Diseño uniforme · CV</span>
+      <h1 class="text-4xl font-extrabold tracking-tight text-slate-950 dark:text-slate-50 sm:text-5xl">{shortName}</h1>
+      <h2 class="ds-copy mt-4 max-w-2xl text-lg" data-i18n="hero.label">
         {label}
       </h2>
-      <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+      <footer class="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
         {
           email && (
             <div class="tooltip-wrapper mt-1">
               <a
-                class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                class="ds-icon-button"
                 href={`mailto:${email}`}
                 title={emailTooltip}
                 aria-label={emailTooltip}
@@ -57,7 +55,7 @@ const SOCIAL_ICONS: SocialIcon = {
             return (
               <div class="tooltip-wrapper mt-1">
                 <a
-                  class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                  class="ds-icon-button"
                   href={url}
                   title={`Visita mi ${network}`}
                   aria-label={`Visita mi ${network}`}
@@ -77,7 +75,7 @@ const SOCIAL_ICONS: SocialIcon = {
         }
         <div class="tooltip-wrapper mt-1">
           <a
-            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+            class="ds-icon-button"
             href={cvFile}
             title={cvTooltip}
             aria-label={cvTooltip}
@@ -93,9 +91,9 @@ const SOCIAL_ICONS: SocialIcon = {
         </div>
       </footer>
     </div>
-    <figure>
+    <figure class="ds-card overflow-hidden p-3">
       <img
-        class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
+        class="h-40 w-40 rounded-[1.5rem] object-cover ring-4 ring-white/50 dark:ring-slate-800/70"
         src={image}
         alt={`Foto de perfil de ${name}`}
         data-i18n-template="hero.profileAlt"
@@ -106,10 +104,6 @@ const SOCIAL_ICONS: SocialIcon = {
 </Section>
 
 <style>
-  footer a {
-    transition: all 0.3s ease;
-  }
-
   .tooltip-wrapper {
     position: relative;
   }
@@ -123,22 +117,18 @@ const SOCIAL_ICONS: SocialIcon = {
     margin-top: 0.5rem;
     transform: translateX(-50%);
     white-space: nowrap;
-    border-radius: 0.375rem;
-    background: rgb(15 23 42);
-    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    background: var(--ds-text);
+    padding: 0.4rem 0.75rem;
     font-size: 0.75rem;
     color: white;
     opacity: 0;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    box-shadow: var(--ds-shadow);
     transition: opacity 0.2s ease;
   }
 
   .tooltip-wrapper:hover .tooltip-bubble,
   .tooltip-wrapper:focus-within .tooltip-bubble {
     opacity: 1;
-  }
-
-  :global(.dark) .tooltip-bubble {
-    background: rgb(51 65 85);
   }
 </style>
