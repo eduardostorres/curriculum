@@ -93,6 +93,32 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         }
       };
 
+      const getFallbackValue = (element) => {
+        if (!element.dataset.i18nFallback) {
+          const fallbackValue = element instanceof HTMLImageElement
+            ? element.alt
+            : element.textContent ?? '';
+          element.dataset.i18nFallback = fallbackValue;
+        }
+
+        return element.dataset.i18nFallback ?? '';
+      };
+
+      const getTemplateFallback = (element, key) => {
+        if (!element.dataset.i18nTemplateFallback) {
+          const fallbackValue = element instanceof HTMLImageElement
+            ? element.alt
+            : element.getAttribute('title') ?? element.getAttribute('aria-label') ?? '';
+          element.dataset.i18nTemplateFallback = fallbackValue;
+        }
+
+        return element.dataset.i18nTemplateFallback ?? {
+          'hero.emailTitle': `Enviar un correo a ${element.getAttribute('data-email') ?? ''}`,
+          'hero.visitProfile': `Visita mi ${element.getAttribute('data-network') ?? ''}`,
+          'hero.profileAlt': `Foto de perfil de ${element.getAttribute('data-name') ?? ''}`
+        }[key] ?? '';
+      };
+
       const applyLanguage = (language) => {
         root.lang = language;
         root.dataset.language = language;
@@ -111,8 +137,10 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         document.querySelectorAll('[data-i18n]').forEach((element) => {
           const key = element.getAttribute('data-i18n');
           if (!key) return;
-          const translated = dictionary ? getNestedValue(dictionary, key) : null;
-          if (translated) element.textContent = translated;
+
+          const fallbackValue = getFallbackValue(element);
+          const translated = dictionary ? getNestedValue(dictionary, key) : fallbackValue;
+          element.textContent = translated ?? fallbackValue;
         });
 
         document.querySelectorAll('[data-i18n-template]').forEach((element) => {
@@ -120,11 +148,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           if (!key) return;
 
           const template = dictionary ? getNestedValue(dictionary, key) : null;
-          const fallback = {
-            'hero.emailTitle': `Enviar un correo a ${element.getAttribute('data-email') ?? ''}`,
-            'hero.visitProfile': `Visita mi ${element.getAttribute('data-network') ?? ''}`,
-            'hero.profileAlt': `Foto de perfil de ${element.getAttribute('data-name') ?? ''}`
-          }[key];
+          const fallback = getTemplateFallback(element, key);
           const value = template
             ? replaceTemplate(template, {
                 email: element.getAttribute('data-email') ?? '',
@@ -184,6 +208,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <button
+        type="button"
         id="language-toggle"
         class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
         aria-label="Switch to English"
@@ -192,6 +217,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         🌐 <span id="language-toggle-badge">ES</span>
       </button>
       <button
+        type="button"
         id="theme-toggle"
         class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
         aria-label="Switch to dark mode"
@@ -201,24 +227,32 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       </button>
     </div>
     <slot />
-    <script>
-      const preferences = window.__portfolioPreferences;
-      const themeToggle = document.getElementById('theme-toggle');
-      const languageToggle = document.getElementById('language-toggle');
+    <script is:inline>
+      const initializePreferenceToggles = () => {
+        const preferences = window.__portfolioPreferences;
+        const themeToggle = document.getElementById('theme-toggle');
+        const languageToggle = document.getElementById('language-toggle');
 
-      themeToggle?.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        const nextTheme = isDark ? 'light' : 'dark';
-        localStorage.setItem('theme', nextTheme);
-        preferences?.applyTheme(nextTheme);
-      });
+        themeToggle?.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.contains('dark');
+          const nextTheme = isDark ? 'light' : 'dark';
+          localStorage.setItem('theme', nextTheme);
+          preferences?.applyTheme(nextTheme);
+        });
 
-      languageToggle?.addEventListener('click', () => {
-        const currentLanguage = document.documentElement.lang === 'en' ? 'en' : 'es';
-        const nextLanguage = currentLanguage === 'en' ? 'es' : 'en';
-        localStorage.setItem('language', nextLanguage);
-        preferences?.applyLanguage(nextLanguage);
-      });
+        languageToggle?.addEventListener('click', () => {
+          const currentLanguage = document.documentElement.lang === 'en' ? 'en' : 'es';
+          const nextLanguage = currentLanguage === 'en' ? 'es' : 'en';
+          localStorage.setItem('language', nextLanguage);
+          preferences?.applyLanguage(nextLanguage);
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializePreferenceToggles, { once: true });
+      } else {
+        initializePreferenceToggles();
+      }
     </script>
   </body>
 </html>
