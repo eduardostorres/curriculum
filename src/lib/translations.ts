@@ -3,7 +3,7 @@ export const translations = {
     meta: {
       pageSuffix: 'Resume',
       description:
-        'Software developer with 2+ years of experience building user-focused web solutions from Mexico City.'
+        'Software developer with 2+ years of experience building robust, scalable, user-focused web applications from Mexico City.'
     },
     controls: {
       theme: {
@@ -11,7 +11,7 @@ export const translations = {
         dark: 'Switch to dark mode'
       },
       language: {
-        es: 'Cambiar a español',
+        es: 'Switch to Spanish',
         en: 'Switch to English'
       },
       badges: {
@@ -23,10 +23,11 @@ export const translations = {
       }
     },
     hero: {
-      label: 'Software Developer',
+      label: 'Software Engineer | Full Stack Developer',
       emailTitle: 'Send an email to {email}',
       visitProfile: 'Visit my {network}',
-      profileAlt: 'Profile picture of {name}'
+      profileAlt: 'Profile picture of {name}',
+      downloadCv: 'Download my resume'
     },
     sections: {
       profile: 'Profile',
@@ -34,11 +35,12 @@ export const translations = {
       skills: 'Skills',
       education: 'Education',
       certificates: 'Certificates',
-      courses: 'Courses'
+      courses: 'Courses',
+      projects: 'Projects'
     },
     profile: {
       summary:
-        '2+ years of experience as a web developer. I currently live in Mexico City, Mexico. I have contributed to the success of key projects, demonstrating my ability to deliver effective, user-centered web solutions.'
+        'Software developer with more than 2 years of experience building robust, scalable, user-focused web applications. I specialize in full stack development, combining modern frontends with solid backends, well-designed APIs, and optimized databases.\n\nI have worked on ERP-style business systems, improving critical processes and communication between systems. I complement my profile with networking knowledge (CCNA), which allows me to understand how applications interact at the infrastructure level.\n\nI stand out for writing clean, maintainable, results-oriented code. I am currently based in Mexico City and looking to contribute real value while continuing to grow technically.'
     },
     experience: {
       current: 'Present',
@@ -47,13 +49,13 @@ export const translations = {
           position: 'PHP Developer',
           at: 'at',
           summary:
-            'I contributed to the development and maintenance of ERP intranet systems, improving real-time order management and communication between systems. I also handled version control and process automation on Linux (Ubuntu) servers, ensuring system stability.'
+            'Development and maintenance of internal ERP systems focused on real-time order management.\n\nI optimized communication between system modules, improving the efficiency of information flows and reducing response times.\n\nI managed Linux (Ubuntu) environments, automating deployment and maintenance processes to ensure stability, availability, and performance.\n\nI implemented Git version control best practices, making collaboration and code traceability easier.'
         },
         {
           position: 'Junior Full Stack Developer',
           at: 'at',
           summary:
-            'I designed and implemented attractive, functional web interfaces, while also developing authentication and role management systems to strengthen platform security.'
+            'Full stack development of a web platform, implementing modern, responsive interfaces focused on user experience.\n\nI designed and implemented role-based authentication and access control systems, strengthening application security.\n\nI integrated frontend and backend through APIs, ensuring efficient communication and proper data management.'
         }
       ]
     },
@@ -62,21 +64,21 @@ export const translations = {
         {
           area: 'Software Design and Network Engineering',
           summary:
-            'A degree program that prepares professionals in areas such as programming, cybersecurity, and network management.'
+            'Training focused on comprehensive software development, combining programming, systems architecture, and networking.\n\nI build complete solutions that range from backend logic to deployment on real infrastructure.\n\nI apply concepts such as API design, database modeling, and networking fundamentals to build scalable, efficient, well-structured systems.'
         }
       ]
     },
     courses: {
       items: [
         {
-          typePlatform: 'Online learning platform',
+          typePlatform: 'Technology training platform',
           summary:
-            'On this platform, I learned programming fundamentals and built strong JavaScript skills, especially with React.js and Astro. I also explored web development with PHP and Laravel, complemented by tools such as Tailwind and Bootstrap. For data management, I worked with both MySQL and PostgreSQL databases. I also strengthened my version control workflow with Git and GitHub.'
+            'Continuous learning in modern web development, focused on JavaScript, React, Astro, and backend development with PHP and Laravel.\n\nExperience with responsive design using Tailwind and Bootstrap.\n\nProficiency with relational databases (MySQL, PostgreSQL) and version control using Git and GitHub.'
         },
         {
           typePlatform: 'Online learning platform',
           summary:
-            'Through Udemy, I strengthened my JavaScript and PHP skills with a focus on web development. I also gained experience with Linux (Ubuntu), and the PHP courses gave me an advanced understanding of the language, including session handling, form validation, and MySQL database interaction.'
+            'Specialized training in web development with JavaScript and PHP, including session handling, data validation, and database integration.\n\nExperience working in Linux (Ubuntu) environments and basic server administration.'
         }
       ]
     },
@@ -84,7 +86,47 @@ export const translations = {
       items: [
         {
           summary:
-            'IT Essentials is a Cisco certification that provides a solid foundation in core information technology concepts, covering hardware, software, networking, and security.'
+            'Configuration and administration of enterprise networks, including switching, routing, and wireless networking.\n\nImplementation of VLANs, static and dynamic routing, Cisco device configuration, and troubleshooting.\n\nAbility to design stable, secure, scalable networks.'
+        },
+        {
+          summary:
+            'Networking fundamentals, OSI and TCP/IP models, IPv4/IPv6 addressing, and connectivity principles.\n\nA solid foundation for understanding communication between systems.'
+        },
+        {
+          summary:
+            'IT fundamentals: hardware, operating systems, networking, and security.\n\nUnderstanding of the full environment where applications run.'
+        }
+      ]
+    },
+    projects: {
+      items: [
+        {
+          description: 'Interactive learning platform built around narrative and programming challenges.',
+          highlights: ['Gamified experience', 'Hands-on learning', 'Project in progress'],
+          openProject: 'View project {name}',
+          sourceCode: 'View source code for project {name}',
+          active: 'Active project'
+        },
+        {
+          description: 'Daily programming challenges focused on improving logic and JavaScript skills.',
+          highlights: ['1M+ visits', 'Multilingual', 'JavaScript & TypeScript'],
+          openProject: 'View project {name}',
+          sourceCode: 'View source code for project {name}',
+          active: 'Active project'
+        },
+        {
+          description: 'Interactive programming game with challenges and hidden mechanics.',
+          highlights: ['2,000+ active users', 'Multilingual'],
+          openProject: 'View project {name}',
+          sourceCode: 'View source code for project {name}',
+          active: 'Active project'
+        },
+        {
+          description: 'Online playground for writing and sharing HTML, CSS, and JavaScript code.',
+          highlights: ['100K monthly visits', 'Collaborative'],
+          openProject: 'View project {name}',
+          sourceCode: 'View source code for project {name}',
+          active: 'Active project'
         }
       ]
     }
