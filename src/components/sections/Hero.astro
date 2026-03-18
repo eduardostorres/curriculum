@@ -10,6 +10,7 @@ import type { SocialIcon } from "@/types";
 const { name, shortName, label, image, email } = basics;
 const cvFile = "https://drive.google.com/file/d/1j4NtDcRoUGnE-aOG2UTUg9XMLnmhDdQO/view?usp=drive_link";
 const cvTooltip = "Descarga mi CV";
+const emailTooltip = `Enviar un correo a ${email}`;
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -30,20 +31,26 @@ const SOCIAL_ICONS: SocialIcon = {
       <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
         {
           email && (
-            <a
-              class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-              href={`mailto:${email}`}
-              title={`Enviar un correo a ${email}`}
-              data-i18n-template="hero.emailTitle"
-              data-email={email}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Mail />
-            </a>
+            <div class="tooltip-wrapper mt-1">
+              <a
+                class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                href={`mailto:${email}`}
+                title={emailTooltip}
+                aria-label={emailTooltip}
+                data-i18n-template="hero.emailTitle"
+                data-email={email}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail />
+              </a>
+              <span class="tooltip-bubble" role="tooltip" data-i18n-template="hero.emailTitle" data-email={email}>
+                {emailTooltip}
+              </span>
+            </div>
           )
         }
-        <div class="group relative mt-1">
+        <div class="tooltip-wrapper mt-1">
           <a
             class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
             href={cvFile}
@@ -55,11 +62,7 @@ const SOCIAL_ICONS: SocialIcon = {
           >
             <CV />
           </a>
-          <span
-            class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-3 py-1 text-xs text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:bg-slate-700"
-            role="tooltip"
-            data-i18n="hero.downloadCv"
-          >
+          <span class="tooltip-bubble" role="tooltip" data-i18n="hero.downloadCv">
             {cvTooltip}
           </span>
         </div>
@@ -68,17 +71,23 @@ const SOCIAL_ICONS: SocialIcon = {
             const Icon = SOCIAL_ICONS[network];
 
             return (
-              <a
-                class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-                href={url}
-                title={`Visita mi ${network}`}
-                data-i18n-template="hero.visitProfile"
-                data-network={network}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
+              <div class="tooltip-wrapper mt-1">
+                <a
+                  class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                  href={url}
+                  title={`Visita mi ${network}`}
+                  aria-label={`Visita mi ${network}`}
+                  data-i18n-template="hero.visitProfile"
+                  data-network={network}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon />
+                </a>
+                <span class="tooltip-bubble" role="tooltip" data-i18n-template="hero.visitProfile" data-network={network}>
+                  {`Visita mi ${network}`}
+                </span>
+              </div>
             );
           })
         }
@@ -99,5 +108,37 @@ const SOCIAL_ICONS: SocialIcon = {
 <style>
   footer a {
     transition: all 0.3s ease;
+  }
+
+  .tooltip-wrapper {
+    position: relative;
+  }
+
+  .tooltip-bubble {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 10;
+    margin-top: 0.5rem;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 0.375rem;
+    background: rgb(15 23 42);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    color: white;
+    opacity: 0;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transition: opacity 0.2s ease;
+  }
+
+  .tooltip-wrapper:hover .tooltip-bubble,
+  .tooltip-wrapper:focus-within .tooltip-bubble {
+    opacity: 1;
+  }
+
+  :global(.dark) .tooltip-bubble {
+    background: rgb(51 65 85);
   }
 </style>

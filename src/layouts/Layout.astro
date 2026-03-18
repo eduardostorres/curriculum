@@ -76,6 +76,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         root.classList.toggle('dark', theme === 'dark');
         root.dataset.theme = theme;
         const button = document.getElementById('theme-toggle');
+        const tooltip = document.getElementById('theme-toggle-tooltip');
         const badge = document.getElementById('theme-toggle-badge');
         const label = theme === 'dark'
           ? translations.en.controls.theme.light
@@ -84,6 +85,11 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         if (button) {
           button.setAttribute('aria-label', label);
           button.setAttribute('title', label);
+          button.setAttribute('data-tooltip-content', label);
+        }
+
+        if (tooltip) {
+          tooltip.textContent = label;
         }
 
         if (badge) {
@@ -164,10 +170,14 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           } else {
             element.setAttribute('title', value);
             element.setAttribute('aria-label', value);
+            if (element.hasAttribute('data-tooltip-content')) {
+              element.setAttribute('data-tooltip-content', value);
+            }
           }
         });
 
         const languageButton = document.getElementById('language-toggle');
+        const languageTooltip = document.getElementById('language-toggle-tooltip');
         const languageBadge = document.getElementById('language-toggle-badge');
         const nextLanguageLabel = language === 'en'
           ? translations.en.controls.language.es
@@ -176,6 +186,11 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         if (languageButton) {
           languageButton.setAttribute('aria-label', nextLanguageLabel);
           languageButton.setAttribute('title', nextLanguageLabel);
+          languageButton.setAttribute('data-tooltip-content', nextLanguageLabel);
+        }
+
+        if (languageTooltip) {
+          languageTooltip.textContent = nextLanguageLabel;
         }
 
         if (languageBadge) {
@@ -207,24 +222,32 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
-      <button
-        type="button"
-        id="language-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to English"
-        title="Switch to English"
-      >
-        🌐 <span id="language-toggle-badge">ES</span>
-      </button>
-      <button
-        type="button"
-        id="theme-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to dark mode"
-        title="Switch to dark mode"
-      >
-        🌓 <span id="theme-toggle-badge">Auto</span>
-      </button>
+      <div class="header-tooltip-wrapper">
+        <button
+          type="button"
+          id="language-toggle"
+          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          aria-label="Switch to English"
+          title="Switch to English"
+          data-tooltip-content="Switch to English"
+        >
+          🌐 <span id="language-toggle-badge">ES</span>
+        </button>
+        <span class="header-tooltip" id="language-toggle-tooltip" role="tooltip">Switch to English</span>
+      </div>
+      <div class="header-tooltip-wrapper">
+        <button
+          type="button"
+          id="theme-toggle"
+          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+          data-tooltip-content="Switch to dark mode"
+        >
+          🌓 <span id="theme-toggle-badge">Auto</span>
+        </button>
+        <span class="header-tooltip" id="theme-toggle-tooltip" role="tooltip">Switch to dark mode</span>
+      </div>
     </div>
     <slot />
     <script is:inline>
@@ -260,5 +283,39 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 <style is:global>
   html {
     font-family: monospace;
+  }
+</style>
+
+
+<style is:global>
+  .header-tooltip-wrapper {
+    position: relative;
+  }
+
+  .header-tooltip-wrapper .header-tooltip {
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    z-index: 60;
+    white-space: nowrap;
+    border-radius: 0.375rem;
+    background: rgb(15 23 42);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    color: white;
+    opacity: 0;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transition: opacity 0.2s ease;
+  }
+
+  .header-tooltip-wrapper:hover .header-tooltip,
+  .header-tooltip-wrapper:focus-within .header-tooltip {
+    opacity: 1;
+  }
+
+
+  .dark .header-tooltip-wrapper .header-tooltip {
+    background: rgb(51 65 85);
   }
 </style>
