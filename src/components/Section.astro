@@ -7,15 +7,18 @@ interface Props {
 const { title, translationKey } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section class="rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 py-7 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm sm:px-8 sm:py-8">
   {
     title && (
-      <h2
-        class="font-bold mt-8 text-3xl font-sans"
-        data-i18n={translationKey}
-      >
-        {title}
-      </h2>
+      <div class="mb-6 flex items-center gap-4">
+        <span class="h-px flex-1 bg-white/10"></span>
+        <h2
+          class="text-xs font-semibold uppercase tracking-[0.35em] text-neutral-300"
+          data-i18n={translationKey}
+        >
+          {title}
+        </h2>
+      </div>
     )
   }
   <slot />
