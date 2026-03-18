@@ -14,13 +14,79 @@ const { shortName } = basics;
 ---
 
 <Layout title={`${shortName} | Curriculum Vitae`}>
-  <main class="p-8">
-    <Hero />
-    <Profile />
-    <Experience />
-    <Skills />
-    <Education />
-    <Certificates />
-    <Courses />
+  <main id="main-content" class="mx-auto flex max-w-6xl flex-col gap-6 px-4 pb-12 pt-24 sm:px-6 lg:flex-row lg:items-start lg:gap-10 lg:px-8">
+    <aside class="lg:sticky lg:top-24 lg:w-64 lg:self-start">
+      <nav class="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/80" aria-label="Navegación de secciones">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500" data-i18n="controls.sectionNavLabel">Explorar</p>
+        <ul class="flex snap-x gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible">
+          <li><a href="#profile" data-section-link class="section-link" data-i18n="sections.profile">Perfil</a></li>
+          <li><a href="#experience" data-section-link class="section-link" data-i18n="sections.experience">Experiencia laboral</a></li>
+          <li><a href="#skills" data-section-link class="section-link" data-i18n="sections.skills">Habilidades</a></li>
+          <li><a href="#education" data-section-link class="section-link" data-i18n="sections.education">Educación</a></li>
+          <li><a href="#certificates" data-section-link class="section-link" data-i18n="sections.certificates">Certificados</a></li>
+          <li><a href="#courses" data-section-link class="section-link" data-i18n="sections.courses">Cursos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="min-w-0 flex-1">
+      <Hero />
+      <Profile />
+      <Experience />
+      <Skills />
+      <Education />
+      <Certificates />
+      <Courses />
+    </div>
   </main>
 </Layout>
+
+<style>
+  .section-link {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(226 232 240);
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgb(71 85 105);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .section-link:hover {
+    border-color: rgb(14 165 233);
+    color: rgb(2 132 199);
+    background: rgb(240 249 255);
+  }
+
+  .section-link[data-active="true"],
+  .section-link[aria-current="true"] {
+    border-color: rgb(14 165 233);
+    background: linear-gradient(135deg, rgb(14 165 233), rgb(16 185 129));
+    color: white;
+    box-shadow: 0 12px 30px -18px rgba(14, 165, 233, 0.9);
+  }
+
+  :global(.dark) .section-link {
+    border-color: rgb(51 65 85);
+    color: rgb(226 232 240);
+    background: rgba(15, 23, 42, 0.45);
+  }
+
+  :global(.dark) .section-link:hover {
+    border-color: rgb(56 189 248);
+    color: rgb(125 211 252);
+    background: rgba(12, 74, 110, 0.35);
+  }
+
+  :global(.dark) .section-link[data-active="true"],
+  :global(.dark) .section-link[aria-current="true"] {
+    border-color: transparent;
+    color: white;
+    background: linear-gradient(135deg, rgb(2 132 199), rgb(5 150 105));
+  }
+</style>

@@ -4,7 +4,7 @@ import Section from "../Section.astro";
 import { work } from "@cv";
 ---
 
-<Section title="Experiencia laboral" translationKey="sections.experience">
+<Section title="Experiencia laboral" translationKey="sections.experience" sectionId="experience">
   <ul class="relative border-s border-gray-200 dark:border-gray-700">
     {
       work.map(({ name, startDate, endDate, position, summary, url }, index) => {

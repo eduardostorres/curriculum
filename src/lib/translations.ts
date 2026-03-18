@@ -20,7 +20,10 @@ export const translations = {
         light: 'Light',
         langEs: 'ES',
         langEn: 'EN'
-      }
+      },
+      skipToContent: 'Skip to content',
+      backToTop: 'Back to top',
+      sectionNavLabel: 'Explore'
     },
     hero: {
       label: 'Software Developer',

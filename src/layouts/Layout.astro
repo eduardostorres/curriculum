@@ -183,6 +183,16 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
             ? translations.en.controls.badges.langEn
             : translations.en.controls.badges.langEs;
         }
+
+        const backToTopButton = document.getElementById('back-to-top');
+        const backToTopLabel = language === 'en'
+          ? translations.en.controls.backToTop
+          : 'Volver arriba';
+
+        if (backToTopButton) {
+          backToTopButton.setAttribute('aria-label', backToTopLabel);
+          backToTopButton.setAttribute('title', backToTopLabel);
+        }
       };
 
       const initialTheme = getPreferredTheme();
@@ -206,6 +216,18 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     </script>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white dark:focus:bg-slate-100 dark:focus:text-slate-900"
+      data-i18n="controls.skipToContent"
+    >
+      Saltar al contenido
+    </a>
+
+    <div class="pointer-events-none fixed inset-x-0 top-0 z-[60] h-1 bg-transparent">
+      <div id="scroll-progress" class="h-full w-0 bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-500 transition-[width] duration-150"></div>
+    </div>
+
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <button
         type="button"
@@ -227,11 +249,70 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       </button>
     </div>
     <slot />
+    <button
+      type="button"
+      id="back-to-top"
+      class="pointer-events-none fixed bottom-6 right-6 z-50 translate-y-4 rounded-full border border-slate-200 bg-white/90 p-3 text-slate-700 opacity-0 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:bg-slate-800"
+      aria-label="Volver arriba"
+      title="Volver arriba"
+    >
+      <span aria-hidden="true">↑</span>
+      <span class="sr-only" data-i18n="controls.backToTop">Volver arriba</span>
+    </button>
     <script is:inline>
       const initializePreferenceToggles = () => {
         const preferences = window.__portfolioPreferences;
         const themeToggle = document.getElementById('theme-toggle');
         const languageToggle = document.getElementById('language-toggle');
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTopButton = document.getElementById('back-to-top');
+        const navLinks = [...document.querySelectorAll('[data-section-link]')];
+        const sections = [...document.querySelectorAll('[data-section-id]')];
+
+        const updateScrollProgress = () => {
+          const scrollTop = window.scrollY;
+          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = scrollHeight > 0 ? Math.min((scrollTop / scrollHeight) * 100, 100) : 0;
+
+          if (progressBar) {
+            progressBar.style.width = `${progress}%`;
+          }
+
+          if (backToTopButton) {
+            const shouldShow = scrollTop > 320;
+            backToTopButton.classList.toggle('pointer-events-none', !shouldShow);
+            backToTopButton.classList.toggle('opacity-0', !shouldShow);
+            backToTopButton.classList.toggle('translate-y-4', !shouldShow);
+          }
+        };
+
+        const setActiveSection = (id) => {
+          navLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.dataset.active = isActive ? 'true' : 'false';
+            link.setAttribute('aria-current', isActive ? 'true' : 'false');
+          });
+        };
+
+        if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              const visibleEntry = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+              if (visibleEntry) {
+                setActiveSection(visibleEntry.target.getAttribute('data-section-id'));
+              }
+            },
+            {
+              rootMargin: '-20% 0px -55% 0px',
+              threshold: [0.2, 0.4, 0.6]
+            }
+          );
+
+          sections.forEach((section) => observer.observe(section));
+        }
 
         themeToggle?.addEventListener('click', () => {
           const isDark = document.documentElement.classList.contains('dark');
@@ -246,6 +327,14 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           localStorage.setItem('language', nextLanguage);
           preferences?.applyLanguage(nextLanguage);
         });
+
+        backToTopButton?.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        window.addEventListener('load', updateScrollProgress, { once: true });
+        updateScrollProgress();
       };
 
       if (document.readyState === 'loading') {
@@ -256,9 +345,3 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     </script>
   </body>
 </html>
-
-<style is:global>
-  html {
-    font-family: monospace;
-  }
-</style>
