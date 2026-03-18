@@ -9,7 +9,6 @@ import type { SocialIcon } from "@/types";
 
 const { name, shortName, label, image, email } = basics;
 const cvFile = "https://drive.google.com/file/d/1j4NtDcRoUGnE-aOG2UTUg9XMLnmhDdQO/view?usp=drive_link";
-const cvTooltip = "Descarga mi CV";
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -18,20 +17,26 @@ const SOCIAL_ICONS: SocialIcon = {
 ---
 
 <Section>
-  <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
+  <div class="flex flex-col-reverse items-center justify-between gap-4 lg:flex-row">
     <div class="flex flex-col items-center lg:items-start">
-      <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
+      <h1 class="flex text-center font-sans text-4xl font-bold">{shortName}</h1>
       <h2
-        class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
+        class="mt-2 text-balance text-lg text-gray-400 dark:text-gray-300"
         data-i18n="hero.label"
       >
         {label}
       </h2>
-      <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+      <p
+        class="mt-4 max-w-2xl text-center text-sm leading-6 text-gray-500 dark:text-gray-300 lg:text-left"
+        data-i18n="hero.quickHint"
+      >
+        Explora rápidamente cada sección, cambia el idioma o el tema, y descarga el CV con un solo clic.
+      </p>
+      <footer class="mt-4 flex flex-wrap justify-center gap-3 text-gray-500 dark:text-gray-400 lg:justify-start">
         {
           email && (
             <a
-              class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+              class="mt-1 inline-flex h-12 w-12 items-center justify-center rounded-md border border-solid border-gray-200 p-1 text-slate-500 transition hover:border-gray-200 hover:bg-slate-100 dark:border-gray-700 dark:text-slate-400 dark:hover:border-gray-600 dark:hover:bg-slate-800"
               href={`mailto:${email}`}
               title={`Enviar un correo a ${email}`}
               data-i18n-template="hero.emailTitle"
@@ -43,31 +48,22 @@ const SOCIAL_ICONS: SocialIcon = {
             </a>
           )
         }
-        <div class="group relative mt-1">
-          <a
-            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-            href={cvFile}
-            title={cvTooltip}
-            aria-label={cvTooltip}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <CV />
-          </a>
-          <span
-            class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-3 py-1 text-xs text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:bg-slate-700"
-            role="tooltip"
-          >
-            {cvTooltip}
-          </span>
-        </div>
+        <a
+          class="mt-1 inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          href={cvFile}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CV />
+          <span data-i18n="hero.downloadCv">Descargar CV</span>
+        </a>
         {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
 
             return (
               <a
-                class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                class="mt-1 inline-flex h-12 w-12 items-center justify-center rounded-md border border-solid border-gray-200 p-1 text-slate-500 transition hover:border-gray-200 hover:bg-slate-100 dark:border-gray-700 dark:text-slate-400 dark:hover:border-gray-600 dark:hover:bg-slate-800"
                 href={url}
                 title={`Visita mi ${network}`}
                 data-i18n-template="hero.visitProfile"
@@ -84,7 +80,7 @@ const SOCIAL_ICONS: SocialIcon = {
     </div>
     <figure>
       <img
-        class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
+        class="h-36 w-36 rounded-full object-cover p-1 ring-2 ring-gray-500 dark:ring-gray-400"
         src={image}
         alt={`Foto de perfil de ${name}`}
         data-i18n-template="hero.profileAlt"
@@ -93,9 +89,3 @@ const SOCIAL_ICONS: SocialIcon = {
     </figure>
   </div>
 </Section>
-
-<style>
-  footer a {
-    transition: all 0.3s ease;
-  }
-</style>

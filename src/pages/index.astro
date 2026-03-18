@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
+import QuickNav from "@/components/QuickNav.astro";
 import Certificates from "@/components/sections/Certificates.astro";
 import Courses from "@/components/sections/Courses.astro";
 import Education from "@/components/sections/Education.astro";
@@ -14,8 +15,9 @@ const { shortName } = basics;
 ---
 
 <Layout title={`${shortName} | Curriculum Vitae`}>
-  <main class="p-8">
+  <main class="px-4 py-6 sm:px-6 lg:px-8">
     <Hero />
+    <QuickNav />
     <Profile />
     <Experience />
     <Skills />

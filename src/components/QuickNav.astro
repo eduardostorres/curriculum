@@ -1,0 +1,35 @@
+---
+const items = [
+  { id: 'profile', label: 'Perfil', translationKey: 'sections.profile' },
+  { id: 'experience', label: 'Experiencia', translationKey: 'sections.experience' },
+  { id: 'skills', label: 'Habilidades', translationKey: 'sections.skills' },
+  { id: 'education', label: 'Educación', translationKey: 'sections.education' },
+  { id: 'certificates', label: 'Certificados', translationKey: 'sections.certificates' },
+  { id: 'courses', label: 'Cursos', translationKey: 'sections.courses' }
+];
+---
+
+<nav
+  aria-label="Navegación rápida"
+  class="sticky top-20 z-40 mx-auto mb-6 max-w-4xl"
+>
+  <div class="overflow-x-auto rounded-2xl border border-gray-200/80 bg-white/85 px-3 py-3 shadow-sm backdrop-blur dark:border-gray-700/80 dark:bg-gray-900/80">
+    <ul class="flex min-w-max gap-2">
+      {
+        items.map(({ id, label, translationKey }) => (
+          <li>
+            <a
+              href={`#${id}`}
+              class="quick-nav-link inline-flex items-center rounded-full border border-transparent bg-gray-100 px-4 py-2 text-sm font-medium text-gray-600 transition hover:border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white"
+              data-section-target={id}
+              data-i18n={translationKey}
+              aria-current="false"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>

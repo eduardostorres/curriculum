@@ -26,7 +26,9 @@ export const translations = {
       label: 'Software Developer',
       emailTitle: 'Send an email to {email}',
       visitProfile: 'Visit my {network}',
-      profileAlt: 'Profile picture of {name}'
+      profileAlt: 'Profile picture of {name}',
+      quickHint: 'Quickly explore each section, change the language or theme, and download the resume in one click.',
+      downloadCv: 'Download resume'
     },
     sections: {
       profile: 'Profile',
