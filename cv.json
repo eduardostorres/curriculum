@@ -7,8 +7,21 @@
     "email": "edvardodev@gmail.com",
     "url": "https://www.edvardo.dev",
     "availability": true,
-    "summary": "Desarrollador de software con más de 2 años de experiencia construyendo soluciones web robustas, escalables y centradas en el usuario. Me especializo en el desarrollo full stack, integrando frontend moderno con backends sólidos y bien estructurados. \n\nHe participado en el desarrollo y mantenimiento de sistemas empresariales, optimizando procesos críticos y mejorando la comunicación entre sistemas mediante arquitecturas eficientes. Me caracterizo por ser detallista, orientado a resultados y con una fuerte mentalidad de mejora continua.\n\nActualmente radico en Ciudad de México y me enfoco en crear productos digitales que no solo funcionen, sino que sean mantenibles, seguros y preparados para escalar."
+    "summary": "Desarrollador de software con más de 2 años de experiencia construyendo aplicaciones web robustas, escalables y centradas en el usuario. Me especializo en desarrollo full stack, integrando frontend moderno con backends sólidos, APIs bien diseñadas y bases de datos optimizadas.\n\nHe trabajado en sistemas empresariales tipo ERP, mejorando procesos críticos y la comunicación entre sistemas. Complemento mi perfil con conocimientos en redes (CCNA), lo que me permite entender cómo interactúan las aplicaciones a nivel de infraestructura.\n\nMe caracterizo por escribir código limpio, mantenible y orientado a resultados. Actualmente radico en Ciudad de México y busco participar en proyectos donde pueda aportar valor real y seguir creciendo a nivel técnico."
   },
+
+  "profiles": [
+    {
+      "network": "LinkedIn",
+      "username": "edvardodev",
+      "url": "https://linkedin.com/in/eduardostorres"
+    },
+    {
+      "network": "GitHub",
+      "username": "edvardodev",
+      "url": "https://github.com/eduardostorres"
+    }
+  ],
 
   "work": [
     {
@@ -17,7 +30,7 @@
       "url": "https://siipanmx.com/",
       "startDate": "2022-09-01",
       "endDate": null,
-      "summary": "Responsable del desarrollo y mantenimiento de sistemas ERP internos, enfocados en la gestión de pedidos y operaciones en tiempo real. Implementé mejoras en la comunicación entre módulos del sistema, optimizando flujos de información y reduciendo tiempos de respuesta.\n\nAdministré entornos Linux (Ubuntu), automatizando procesos de despliegue y mantenimiento para garantizar estabilidad, disponibilidad y rendimiento. Participé activamente en el control de versiones (Git), asegurando integridad del código y colaboración eficiente dentro del equipo.\n\nMi enfoque estuvo orientado a escribir código limpio, reutilizable y alineado a buenas prácticas, contribuyendo a la escalabilidad del sistema."
+      "summary": "Desarrollo y mantenimiento de sistemas ERP internos orientados a la gestión de pedidos en tiempo real.\n\nOptimicé la comunicación entre módulos del sistema, mejorando la eficiencia de los flujos de información y reduciendo tiempos de respuesta.\n\nAdministré entornos Linux (Ubuntu), automatizando procesos de despliegue y mantenimiento para asegurar estabilidad, disponibilidad y rendimiento.\n\nImplementé buenas prácticas de control de versiones con Git, facilitando la colaboración y la trazabilidad del código."
     },
     {
       "name": "Empeña tu prenda",
@@ -25,7 +38,7 @@
       "url": "https://miempeno.com/",
       "startDate": "2021-05-02",
       "endDate": "2022-07-30",
-      "summary": "Participé en el desarrollo full stack de la plataforma web, diseñando e implementando interfaces modernas, responsivas y orientadas a la experiencia del usuario.\n\nDesarrollé sistemas de autenticación y control de acceso basados en roles, fortaleciendo la seguridad de la aplicación y protegiendo la integridad de los datos.\n\nColaboré en la integración entre frontend y backend, asegurando una comunicación eficiente con APIs y una correcta gestión del estado de la aplicación. Mi trabajo se centró en entregar soluciones funcionales, seguras y alineadas con los objetivos del negocio."
+      "summary": "Desarrollo full stack de plataforma web, implementando interfaces modernas, responsivas y orientadas a experiencia de usuario.\n\nDiseñé e implementé sistemas de autenticación y control de acceso basados en roles, fortaleciendo la seguridad de la aplicación.\n\nIntegré frontend y backend mediante APIs, asegurando una comunicación eficiente y una correcta gestión de datos."
     }
   ],
 
@@ -38,7 +51,7 @@
       "startDate": "2023-09-01",
       "endDate": "2026-09-01",
       "score": "9.7",
-      "summary": "Formación orientada al desarrollo integral de software, combinando programación, arquitectura de sistemas y redes. Esta carrera me permite entender el ciclo completo de una aplicación: desde su diseño lógico hasta su despliegue en infraestructura real.\n\nHe trabajado en proyectos donde aplico desarrollo backend, diseño de APIs, modelado de bases de datos y fundamentos de redes, lo que me permite construir soluciones completas, eficientes y escalables.\n\nMe enfoco en desarrollar software con una visión profesional: código limpio, buenas prácticas, rendimiento y mantenibilidad como pilares principales."
+      "summary": "Formación enfocada en el desarrollo integral de software, combinando programación, arquitectura de sistemas y redes.\n\nDesarrollo soluciones completas que abarcan desde la lógica del backend hasta su despliegue en infraestructura real.\n\nAplicación de conceptos como diseño de APIs, modelado de bases de datos y fundamentos de redes para construir sistemas escalables, eficientes y bien estructurados."
     }
   ],
 
@@ -46,22 +59,42 @@
     {
       "platform": "Platzi",
       "typePlatform": "Plataforma de formación tecnológica",
-      "summary": "Formación continua en desarrollo web moderno. He consolidado una base sólida en JavaScript, incluyendo frameworks como React y Astro, así como el desarrollo backend con PHP y Laravel.\n\nHe trabajado con tecnologías de estilado como Tailwind y Bootstrap, priorizando diseño responsivo y experiencia de usuario.\n\nTambién cuento con experiencia en bases de datos relacionales (MySQL y PostgreSQL) y control de versiones con Git y GitHub, aplicando flujos de trabajo profesionales en proyectos reales."
+      "summary": "Formación continua en desarrollo web moderno, con enfoque en JavaScript, React, Astro y desarrollo backend con PHP y Laravel.\n\nExperiencia en diseño responsivo con Tailwind y Bootstrap.\n\nManejo de bases de datos relacionales (MySQL, PostgreSQL) y control de versiones con Git y GitHub."
     },
     {
       "platform": "Udemy",
       "typePlatform": "Plataforma de formación online",
-      "summary": "Especialización en desarrollo web con JavaScript y PHP, profundizando en conceptos clave como manejo de sesiones, validación de datos, seguridad básica e ինտegración con bases de datos.\n\nAdicionalmente, adquirí experiencia práctica en entornos Linux (Ubuntu), comprendiendo la administración básica de servidores y su relación con el despliegue de aplicaciones web."
+      "summary": "Especialización en desarrollo web con JavaScript y PHP, incluyendo manejo de sesiones, validación de datos e integración con bases de datos.\n\nExperiencia en entornos Linux (Ubuntu) y administración básica de servidores."
     }
   ],
 
   "certificates": [
     {
+      "name": "CCNA: Switching, Routing, and Wireless Essentials",
+      "issuer": "Cisco Networking Academy",
+      "date": "2025-12-01",
+      "expirationDate": "2036-12-01",
+      "credentialId": "a02a2cba-042b-40b5-aad7-33df1cc4c2c1",
+      "url": "https://www.credly.com/earner/earned/badge/a02a2cba-042b-40b5-aad7-33df1cc4c2c1",
+      "summary": "Configuración y administración de redes empresariales, incluyendo switching, routing y redes inalámbricas.\n\nImplementación de VLANs, routing estático y dinámico, configuración de dispositivos Cisco y troubleshooting.\n\nCapacidad para diseñar redes estables, seguras y escalables."
+    },
+    {
+      "name": "CCNA: Introduction to Networks",
+      "issuer": "Cisco Networking Academy",
+      "date": "2025-08-01",
+      "expirationDate": "2036-08-01",
+      "credentialId": "4c91a636-9d8e-445a-9dc6-e5b9e5884854",
+      "url": "https://www.credly.com/earner/earned/badge/4c91a636-9d8e-445a-9dc6-e5b9e5884854",
+      "summary": "Fundamentos de redes, modelos OSI y TCP/IP, direccionamiento IPv4/IPv6 y principios de conectividad.\n\nBase sólida para comprender la comunicación entre sistemas."
+    },
+    {
       "name": "IT Essentials",
+      "issuer": "Cisco Networking Academy",
       "date": "2023-12-15",
-      "issuer": "Cisco",
+      "expirationDate": "2036-12-15",
+      "credentialId": "2493bbdb-becf-44be-94bf-1a2f104911ce",
       "url": "https://www.credly.com/badges/2493bbdb-becf-44be-94bf-1a2f104911ce/linked_in_profile",
-      "summary": "Certificación que valida conocimientos fundamentales en tecnologías de la información, incluyendo hardware, sistemas operativos, redes y seguridad.\n\nEsta base técnica refuerza mi capacidad para entender no solo el desarrollo de software, sino también el entorno donde se ejecuta, permitiéndome tomar mejores decisiones a nivel de infraestructura."
+      "summary": "Fundamentos de TI: hardware, sistemas operativos, redes y seguridad.\n\nComprensión del entorno completo donde se ejecutan las aplicaciones."
     }
   ],
 
@@ -92,10 +125,13 @@
 
   "interests": [
     {
-      "name": "Tecnología y desarrollo de software"
+      "name": "Desarrollo de software"
     },
     {
       "name": "Arquitectura de sistemas"
+    },
+    {
+      "name": "Tecnología"
     }
   ],
 
@@ -103,42 +139,42 @@
     {
       "name": "mars.codes",
       "isActive": true,
-      "description": "Plataforma interactiva que combina narrativa y programación, permitiendo a los usuarios aprender resolviendo retos dentro de una historia gamificada.",
+      "description": "Plataforma interactiva de aprendizaje basada en narrativa y retos de programación.",
       "highlights": [
-        "Experiencia tipo 'elige tu propia aventura'",
-        "Enfoque en aprendizaje práctico",
-        "Proyecto en evolución continua"
+        "Experiencia gamificada",
+        "Aprendizaje práctico",
+        "Proyecto en evolución"
       ],
       "url": "https://mars.codes"
     },
     {
       "name": "AdventJS",
       "isActive": true,
-      "description": "Plataforma de retos de programación diarios durante diciembre, enfocada en mejorar habilidades en JavaScript y lógica.",
+      "description": "Retos de programación diarios enfocados en mejorar lógica y habilidades en JavaScript.",
       "highlights": [
         "+1M de visitas",
-        "Soporte multidioma",
-        "Uso de JavaScript y TypeScript"
+        "Multidioma",
+        "JavaScript & TypeScript"
       ],
       "url": "https://adventjs.dev"
     },
     {
       "name": "Codember",
       "isActive": true,
-      "description": "Juego interactivo con retos de programación y mecánicas ocultas, diseñado para fomentar el aprendizaje autodidacta.",
+      "description": "Juego interactivo de programación con retos y mecánicas ocultas.",
       "highlights": [
         "+2000 usuarios activos",
-        "Compatible con múltiples lenguajes"
+        "Multilenguaje"
       ],
       "url": "https://codember.dev"
     },
     {
       "name": "codi.link",
       "isActive": true,
-      "description": "Playground online para escribir, ejecutar y compartir código HTML, CSS y JavaScript en tiempo real.",
+      "description": "Playground online para escribir y compartir código HTML, CSS y JavaScript.",
       "highlights": [
         "100K visitas mensuales",
-        "Proyecto colaborativo"
+        "Colaborativo"
       ],
       "url": "https://codi.link",
       "github": "https://github.com/midudev/codi.link"
