@@ -1,0 +1,16 @@
+---
+import Section from "../Section.astro";
+import { interests } from "@cv";
+---
+
+<Section title="Intereses">
+  <ul class="mt-4 flex flex-wrap gap-2">
+    {
+      interests.map(({ name }) => (
+        <li class="rounded-full bg-gray-100 px-3 py-2 text-sm text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+          {name}
+        </li>
+      ))
+    }
+  </ul>
+</Section>
