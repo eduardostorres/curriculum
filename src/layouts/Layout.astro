@@ -1,6 +1,7 @@
 ---
 import { basics } from "@cv";
 import "@fontsource-variable/raleway";
+import "@fontsource-variable/syne";
 import { translations } from "@/lib/translations";
 
 interface Props {
@@ -219,8 +220,149 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         }
       });
     </script>
+    <style is:global>
+      :root {
+        color-scheme: light;
+        --ds-font-display: "Syne Variable", "Raleway Variable", sans-serif;
+        --ds-font-body: "Raleway Variable", "Poppins", sans-serif;
+        --ds-bg: #f8fafc;
+        --ds-surface: rgba(255, 255, 255, 0.9);
+        --ds-surface-strong: #ffffff;
+        --ds-border: rgba(148, 163, 184, 0.28);
+        --ds-text: #0f172a;
+        --ds-text-muted: #475569;
+        --ds-text-soft: #64748b;
+        --ds-accent: #2563eb;
+        --ds-accent-soft: rgba(37, 99, 235, 0.12);
+        --ds-shadow: 0 24px 48px -28px rgba(15, 23, 42, 0.28);
+      }
+
+      :root.dark {
+        color-scheme: dark;
+        --ds-bg: #020617;
+        --ds-surface: rgba(15, 23, 42, 0.84);
+        --ds-surface-strong: #0f172a;
+        --ds-border: rgba(148, 163, 184, 0.18);
+        --ds-text: #e2e8f0;
+        --ds-text-muted: #cbd5e1;
+        --ds-text-soft: #94a3b8;
+        --ds-accent: #60a5fa;
+        --ds-accent-soft: rgba(96, 165, 250, 0.16);
+        --ds-shadow: 0 28px 56px -32px rgba(2, 6, 23, 0.9);
+      }
+
+      html {
+        background:
+          radial-gradient(circle at top, rgba(37, 99, 235, 0.14), transparent 34%),
+          var(--ds-bg);
+      }
+
+      body {
+        min-height: 100vh;
+        background: transparent;
+        color: var(--ds-text);
+        font-family: var(--ds-font-body);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        margin: 0 auto;
+        width: min(100%, 80rem);
+        padding: 3rem 1.5rem 5rem;
+      }
+
+      .section-shell {
+        margin: 0 auto;
+        max-width: 72rem;
+      }
+
+      .section-card {
+        border: 1px solid var(--ds-border);
+        border-radius: 1.5rem;
+        background: var(--ds-surface);
+        box-shadow: var(--ds-shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .section-heading {
+        font-family: var(--ds-font-display);
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--ds-text);
+      }
+
+      .section-subtitle,
+      .body-copy {
+        color: var(--ds-text-muted);
+      }
+
+      .card-title {
+        font-family: var(--ds-font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--ds-text);
+      }
+
+      .card-eyebrow {
+        color: var(--ds-text-soft);
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .card-copy {
+        color: var(--ds-text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid var(--ds-border);
+        border-radius: 9999px;
+        background: var(--ds-accent-soft);
+        color: var(--ds-text);
+        padding: 0.625rem 0.9rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .icon-button {
+        display: inline-flex;
+        height: 3rem;
+        width: 3rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--ds-border);
+        border-radius: 1rem;
+        background: var(--ds-surface-strong);
+        color: var(--ds-text-soft);
+        transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+      }
+
+      .icon-button:hover,
+      .icon-button:focus-visible {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--ds-accent) 40%, var(--ds-border));
+        background: var(--ds-accent-soft);
+        color: var(--ds-accent);
+      }
+
+      .stack-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+    </style>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <body class="transition-colors duration-300">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <div class="header-tooltip-wrapper">
         <button

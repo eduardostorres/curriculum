@@ -7,11 +7,11 @@ interface Props {
 const { title, translationKey } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section class="section-shell mt-6">
   {
     title && (
       <h2
-        class="font-bold mt-8 text-3xl font-sans"
+        class="section-heading mb-5 mt-8 px-1"
         data-i18n={translationKey}
       >
         {title}
