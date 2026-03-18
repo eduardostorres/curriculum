@@ -3,21 +3,19 @@ import Section from "../Section.astro";
 import { certificates } from "@cv";
 ---
 
-<Section title="Certificados" translationKey="sections.certificates">
-  <ul class="flex flex-col gap-4">
+<Section title="Certificados" translationKey="sections.certificates" eyebrow="Proof">
+  <ul class="card-grid">
     {
       certificates.map(({ name, issuer, summary }, index) => {
         return (
           <li>
-            <article>
-              <header class="flex">
-                <div>
-                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{name}</h3>
-                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base">{issuer}</p>
-                </div>
+            <article class="info-card">
+              <header>
+                <h3 class="item-title">{name}</h3>
+                <p class="item-subtitle">{issuer}</p>
               </header>
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`certificates.items.${index}.summary`}>{summary}</p>
+                <p class="item-copy" data-i18n={`certificates.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>

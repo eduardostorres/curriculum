@@ -19,21 +19,22 @@ const SOCIAL_ICONS: SocialIcon = {
 ---
 
 <Section>
-  <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
-    <div class="flex flex-col items-center lg:items-start">
-      <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
+  <div class="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row">
+    <div class="flex max-w-2xl flex-col items-center text-center lg:items-start lg:text-left">
+      <span class="eyebrow">Portfolio</span>
+      <h1 class="font-sans text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">{shortName}</h1>
       <h2
-        class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
+        class="mt-3 max-w-2xl text-balance text-lg text-[var(--text-secondary)] sm:text-xl"
         data-i18n="hero.label"
       >
         {label}
       </h2>
-      <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+      <footer class="mt-6 flex flex-wrap justify-center gap-3 text-[var(--text-secondary)] lg:justify-start">
         {
           email && (
             <div class="tooltip-wrapper mt-1">
               <a
-                class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                class="hero-action"
                 href={`mailto:${email}`}
                 title={emailTooltip}
                 aria-label={emailTooltip}
@@ -57,7 +58,7 @@ const SOCIAL_ICONS: SocialIcon = {
             return (
               <div class="tooltip-wrapper mt-1">
                 <a
-                  class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                  class="hero-action"
                   href={url}
                   title={`Visita mi ${network}`}
                   aria-label={`Visita mi ${network}`}
@@ -77,7 +78,7 @@ const SOCIAL_ICONS: SocialIcon = {
         }
         <div class="tooltip-wrapper mt-1">
           <a
-            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+            class="hero-action"
             href={cvFile}
             title={cvTooltip}
             aria-label={cvTooltip}
@@ -93,9 +94,10 @@ const SOCIAL_ICONS: SocialIcon = {
         </div>
       </footer>
     </div>
-    <figure>
+    <figure class="relative">
+      <div class="absolute inset-0 rounded-full bg-[var(--accent)]/15 blur-2xl"></div>
       <img
-        class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
+        class="relative h-40 w-40 rounded-full border border-[var(--surface-border)] bg-[var(--surface-strong)] p-1.5 object-cover shadow-[var(--shadow-soft)]"
         src={image}
         alt={`Foto de perfil de ${name}`}
         data-i18n-template="hero.profileAlt"
@@ -106,8 +108,23 @@ const SOCIAL_ICONS: SocialIcon = {
 </Section>
 
 <style>
-  footer a {
-    transition: all 0.3s ease;
+  .hero-action {
+    display: inline-flex;
+    height: 3.25rem;
+    width: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    border: 1px solid var(--surface-border);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .hero-action:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: var(--surface-soft);
   }
 
   .tooltip-wrapper {
@@ -118,27 +135,23 @@ const SOCIAL_ICONS: SocialIcon = {
     pointer-events: none;
     position: absolute;
     left: 50%;
-    top: 100%;
+    top: calc(100% + 0.5rem);
     z-index: 10;
-    margin-top: 0.5rem;
     transform: translateX(-50%);
     white-space: nowrap;
-    border-radius: 0.375rem;
-    background: rgb(15 23 42);
-    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface-strong);
+    padding: 0.35rem 0.8rem;
     font-size: 0.75rem;
-    color: white;
+    color: var(--text-secondary);
     opacity: 0;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    box-shadow: var(--shadow-soft);
     transition: opacity 0.2s ease;
   }
 
   .tooltip-wrapper:hover .tooltip-bubble,
   .tooltip-wrapper:focus-within .tooltip-bubble {
     opacity: 1;
-  }
-
-  :global(.dark) .tooltip-bubble {
-    background: rgb(51 65 85);
   }
 </style>

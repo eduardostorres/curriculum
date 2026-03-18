@@ -2,20 +2,23 @@
 interface Props {
   title?: string;
   translationKey?: string;
+  eyebrow?: string;
 }
 
-const { title, translationKey } = Astro.props;
+const { title, translationKey, eyebrow } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section class="section-shell">
   {
-    title && (
-      <h2
-        class="font-bold mt-8 text-3xl font-sans"
-        data-i18n={translationKey}
-      >
-        {title}
-      </h2>
+    (eyebrow || title) && (
+      <header>
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && (
+          <h2 class="section-title" data-i18n={translationKey}>
+            {title}
+          </h2>
+        )}
+      </header>
     )
   }
   <slot />

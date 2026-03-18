@@ -220,13 +220,13 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       });
     </script>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <body class="min-h-screen bg-[var(--page-bg)] font-[Raleway_Variable] text-[var(--text-primary)] transition-colors duration-300">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <div class="header-tooltip-wrapper">
         <button
           type="button"
           id="language-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="control-button"
           aria-label="Switch to English"
           title="Switch to English"
           data-tooltip-content="Switch to English"
@@ -239,7 +239,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         <button
           type="button"
           id="theme-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="control-button"
           aria-label="Switch to dark mode"
           title="Switch to dark mode"
           data-tooltip-content="Switch to dark mode"
@@ -281,31 +281,185 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 </html>
 
 <style is:global>
-  html {
-    font-family: monospace;
+  :root {
+    color-scheme: light;
+    --page-bg: #f3f4f6;
+    --surface: rgba(255, 255, 255, 0.88);
+    --surface-strong: #ffffff;
+    --surface-soft: #eef2ff;
+    --surface-border: rgba(148, 163, 184, 0.28);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-soft: rgba(79, 70, 229, 0.12);
+    --shadow-soft: 0 20px 45px -28px rgba(15, 23, 42, 0.35);
   }
-</style>
 
+  :root.dark {
+    color-scheme: dark;
+    --page-bg: #020617;
+    --surface: rgba(15, 23, 42, 0.82);
+    --surface-strong: #0f172a;
+    --surface-soft: rgba(30, 41, 59, 0.9);
+    --surface-border: rgba(148, 163, 184, 0.18);
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --accent: #818cf8;
+    --accent-soft: rgba(129, 140, 248, 0.18);
+    --shadow-soft: 0 22px 50px -30px rgba(2, 6, 23, 0.9);
+  }
 
-<style is:global>
+  html {
+    background:
+      radial-gradient(circle at top left, rgba(99, 102, 241, 0.14), transparent 34%),
+      radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 28%),
+      var(--page-bg);
+  }
+
+  body {
+    background: transparent;
+  }
+
+  .app-shell {
+    margin: 0 auto;
+    max-width: 72rem;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .section-shell {
+    position: relative;
+    margin: 0 auto;
+    max-width: 64rem;
+    padding: 1.5rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 1.5rem;
+    background: var(--surface);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(18px);
+  }
+
+  .section-title {
+    margin-bottom: 1.5rem;
+    font-family: Syne Variable, Raleway Variable, sans-serif;
+    font-size: clamp(1.625rem, 2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    border-radius: 9999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .body-copy {
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .info-card {
+    border: 1px solid var(--surface-border);
+    border-radius: 1.125rem;
+    background: var(--surface-strong);
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 30px -24px rgba(15, 23, 42, 0.55);
+  }
+
+  .item-title {
+    font-family: Syne Variable, Raleway Variable, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .item-subtitle {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .item-copy {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 9999px;
+    background: var(--surface-soft);
+    padding: 0.7rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .control-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(18px);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .control-button:hover {
+    transform: translateY(-1px);
+    background: var(--surface-strong);
+  }
+
   .header-tooltip-wrapper {
     position: relative;
   }
 
-  .header-tooltip-wrapper .header-tooltip {
+  .header-tooltip {
     pointer-events: none;
     position: absolute;
     right: 0;
     top: calc(100% + 0.5rem);
-    z-index: 60;
-    white-space: nowrap;
-    border-radius: 0.375rem;
-    background: rgb(15 23 42);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-    color: white;
+    z-index: 20;
+    min-width: max-content;
+    border-radius: 0.75rem;
+    background: var(--surface-strong);
+    border: 1px solid var(--surface-border);
+    padding: 0.45rem 0.75rem;
+    color: var(--text-secondary);
     opacity: 0;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    box-shadow: var(--shadow-soft);
     transition: opacity 0.2s ease;
   }
 
@@ -314,8 +468,13 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     opacity: 1;
   }
 
+  a {
+    color: inherit;
+  }
 
-  .dark .header-tooltip-wrapper .header-tooltip {
-    background: rgb(51 65 85);
+  @media (min-width: 768px) {
+    .section-shell {
+      padding: 2rem;
+    }
   }
 </style>
