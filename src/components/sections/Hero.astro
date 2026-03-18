@@ -50,22 +50,6 @@ const SOCIAL_ICONS: SocialIcon = {
             </div>
           )
         }
-        <div class="tooltip-wrapper mt-1">
-          <a
-            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-            href={cvFile}
-            title={cvTooltip}
-            aria-label={cvTooltip}
-            data-i18n-template="hero.downloadCv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <CV />
-          </a>
-          <span class="tooltip-bubble" role="tooltip" data-i18n="hero.downloadCv">
-            {cvTooltip}
-          </span>
-        </div>
         {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
@@ -91,6 +75,22 @@ const SOCIAL_ICONS: SocialIcon = {
             );
           })
         }
+        <div class="tooltip-wrapper mt-1">
+          <a
+            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+            href={cvFile}
+            title={cvTooltip}
+            aria-label={cvTooltip}
+            data-i18n-template="hero.downloadCv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CV />
+          </a>
+          <span class="tooltip-bubble" role="tooltip" data-i18n="hero.downloadCv">
+            {cvTooltip}
+          </span>
+        </div>
       </footer>
     </div>
     <figure>
