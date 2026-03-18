@@ -4,9 +4,11 @@ import Section from "@/components/Section.astro";
 import Mail from "@/icons/Mail.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
+import CV from "@/icons/CV.astro";
 import type { SocialIcon } from "@/types";
 
 const { name, shortName, label, image, profiles, email } = basics;
+const cvFile = "/CV-Eduardo-Sanchez.pdf";
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -40,6 +42,14 @@ const SOCIAL_ICONS: SocialIcon = {
             </a>
           )
         }
+        <a
+          class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+          href={cvFile}
+          title="Descargar CV en PDF"
+          download
+        >
+          <CV />
+        </a>
         {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
