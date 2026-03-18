@@ -8,17 +8,15 @@ interface Props {
 const { title, translationKey, className = "" } = Astro.props;
 ---
 
-<section class={`mx-auto mt-6 max-w-6xl ${className}`}>
+<section class={`mx-auto mt-8 max-w-5xl ${className}`}>
   {
     title && (
-      <div class="mb-5 flex items-end justify-between gap-4">
-        <h2
-          class="font-bold text-3xl tracking-tight text-slate-900 dark:text-white font-sans md:text-4xl"
-          data-i18n={translationKey}
-        >
-          {title}
-        </h2>
-      </div>
+      <h2
+        class="mb-5 text-2xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-3xl font-sans"
+        data-i18n={translationKey}
+      >
+        {title}
+      </h2>
     )
   }
   <slot />

@@ -10,7 +10,7 @@ import type { SocialIcon } from "@/types";
 const { name, shortName, label, image, email } = basics;
 const cvFile = "https://drive.google.com/file/d/1j4NtDcRoUGnE-aOG2UTUg9XMLnmhDdQO/view?usp=drive_link";
 const cvTooltip = "Descarga mi CV";
-const featuredSkills = skills.slice(0, 5).map(({ name }) => name);
+const featuredSkills = skills.slice(0, 4).map(({ name }) => name);
 const yearsExperience = new Date().getFullYear() - new Date(work.at(-1)?.startDate ?? new Date().toISOString()).getFullYear();
 
 const SOCIAL_ICONS: SocialIcon = {
@@ -19,22 +19,22 @@ const SOCIAL_ICONS: SocialIcon = {
 };
 ---
 
-<Section className="pt-4 md:pt-8">
-  <div class="grid gap-8 lg:grid-cols-[1.5fr,0.9fr] lg:items-center">
+<Section className="pt-2 md:pt-6">
+  <div class="grid gap-8 border-b border-slate-200 pb-10 dark:border-slate-800 lg:grid-cols-[1.35fr,0.85fr] lg:items-center">
     <div class="space-y-6">
       <div class="space-y-4">
-        <span class="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-sm font-semibold text-sky-700 dark:border-sky-900/70 dark:bg-sky-950/50 dark:text-sky-300">
-          Full stack developer · Ciudad de México
-        </span>
+        <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+          Ciudad de México · Full stack developer
+        </p>
         <div class="space-y-3">
           <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl font-sans">
             {shortName}
           </h1>
-          <h2 class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 md:text-xl" data-i18n="hero.label">
+          <h2 class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="hero.label">
             {label}
           </h2>
           <p class="max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="hero.summaryLead">
-            Desarrollo experiencias web claras, rápidas y mantenibles, conectando interfaces modernas con lógica de negocio sólida.
+            Desarrollo productos web claros, rápidos y mantenibles, uniendo una experiencia visual limpia con lógica de negocio sólida.
           </p>
         </div>
       </div>
@@ -43,7 +43,7 @@ const SOCIAL_ICONS: SocialIcon = {
         {
           email && (
             <a
-              class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+              class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
               href={`mailto:${email}`}
               title={`Enviar un correo a ${email}`}
               data-i18n-template="hero.emailTitle"
@@ -56,7 +56,7 @@ const SOCIAL_ICONS: SocialIcon = {
         }
 
         <a
-          class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+          class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
           href={cvFile}
           title={cvTooltip}
           aria-label={cvTooltip}
@@ -68,39 +68,39 @@ const SOCIAL_ICONS: SocialIcon = {
         </a>
       </div>
 
-      <ul class="grid gap-3 sm:grid-cols-3">
-        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.experienceLabel">Experiencia</p>
-          <p class="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{yearsExperience}+</p>
+      <dl class="grid gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <dt class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.experienceLabel">Experiencia</dt>
+          <dd class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">{yearsExperience}+</dd>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.experienceValue">años creando productos web</p>
-        </li>
-        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.focusLabel">Enfoque</p>
-          <p class="mt-2 text-lg font-bold text-slate-900 dark:text-white" data-i18n="hero.stats.focusValue">Frontend + Backend</p>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.focusBody">UI limpia, APIs y bases de datos eficientes</p>
-        </li>
-        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.stackLabel">Stack</p>
-          <p class="mt-2 text-lg font-bold text-slate-900 dark:text-white">Astro · PHP · TS</p>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.stackBody">Soluciones veloces, escalables y bien estructuradas</p>
-        </li>
-      </ul>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <dt class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.focusLabel">Enfoque</dt>
+          <dd class="mt-2 text-lg font-semibold text-slate-900 dark:text-white" data-i18n="hero.stats.focusValue">Frontend + Backend</dd>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.focusBody">Interfaces limpias, APIs y datos consistentes</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <dt class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.stackLabel">Stack</dt>
+          <dd class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Astro · PHP · TS</dd>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.stackBody">Soluciones rápidas, escalables y mantenibles</p>
+        </div>
+      </dl>
 
       <div class="space-y-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400" data-i18n="hero.stackTitle">Tecnologías clave</p>
+        <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400" data-i18n="hero.stackTitle">Tecnologías clave</p>
         <div class="flex flex-wrap gap-2">
-          {featuredSkills.map((item) => <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200">{item}</span>)}
+          {featuredSkills.map((item) => <span class="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-300">{item}</span>)}
         </div>
       </div>
 
-      <footer class="flex flex-wrap items-center gap-3 pt-2 text-slate-500 dark:text-slate-400">
+      <footer class="flex flex-wrap gap-3 text-slate-500 dark:text-slate-400">
         {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
 
             return (
               <a
-                class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+                class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                 href={url}
                 title={`Visita mi ${network}`}
                 data-i18n-template="hero.visitProfile"
@@ -117,25 +117,22 @@ const SOCIAL_ICONS: SocialIcon = {
       </footer>
     </div>
 
-    <aside class="relative">
-      <div class="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-sky-500/20 via-cyan-500/10 to-indigo-500/20 blur-2xl" />
-      <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/85 p-6 shadow-xl shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/85">
-        <figure class="mx-auto max-w-xs text-center">
-          <img
-            class="mx-auto h-36 w-36 rounded-full object-cover ring-4 ring-white shadow-lg shadow-slate-900/10 dark:ring-slate-800"
-            src={image}
-            alt={`Foto de perfil de ${name}`}
-            data-i18n-template="hero.profileAlt"
-            data-name={name}
-          />
-          <figcaption class="mt-5 space-y-3">
-            <p class="text-lg font-semibold text-slate-900 dark:text-white">{shortName}</p>
-            <p class="text-sm leading-6 text-slate-600 dark:text-slate-300" data-i18n="hero.cardCopy">
-              Perfil orientado a producto, rendimiento y mantenimiento a largo plazo.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
+    <aside class="flex justify-center lg:justify-end">
+      <figure class="w-full max-w-sm rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+        <img
+          class="mx-auto h-32 w-32 rounded-full object-cover"
+          src={image}
+          alt={`Foto de perfil de ${name}`}
+          data-i18n-template="hero.profileAlt"
+          data-name={name}
+        />
+        <figcaption class="mt-5 text-center">
+          <p class="text-lg font-semibold text-slate-900 dark:text-white">{shortName}</p>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300" data-i18n="hero.cardCopy">
+            Perfil orientado a claridad, rendimiento y mantenimiento a largo plazo.
+          </p>
+        </figcaption>
+      </figure>
     </aside>
   </div>
 </Section>
