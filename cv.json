@@ -2,26 +2,14 @@
   "basics": {
     "name": "Eduardo Sebastian Sánchez Torres",
     "shortName": "Eduardo Sánchez",
-    "label": "Desarrollador de Software",
+    "label": "Software Engineer | Full Stack Developer",
     "image": "https://avatars.githubusercontent.com/u/149343665?v=4",
     "email": "edvardodev@gmail.com",
     "url": "https://www.edvardo.dev",
     "availability": true,
-    "summary": "+2 años de experiencia como desarrollador web. Actualmente vivo en Ciudad de México, México. He contribuido al éxito de proyectos importantes, demostrando mi capacidad para ofrecer soluciones web efectivas y centradas en el usuario.",
-
-    "profiles": [
-      {
-        "network": "LinkedIn",
-        "username": "edvardodev",
-        "url": "https://linkedin.com/in/edvardodev"
-      },
-      {
-        "network": "GitHub",
-        "username": "edvardodev",
-        "url": "https://github.com/eduardostorres"
-      }
-    ]
+    "summary": "Desarrollador de software con más de 2 años de experiencia construyendo soluciones web robustas, escalables y centradas en el usuario. Me especializo en el desarrollo full stack, integrando frontend moderno con backends sólidos y bien estructurados. \n\nHe participado en el desarrollo y mantenimiento de sistemas empresariales, optimizando procesos críticos y mejorando la comunicación entre sistemas mediante arquitecturas eficientes. Me caracterizo por ser detallista, orientado a resultados y con una fuerte mentalidad de mejora continua.\n\nActualmente radico en Ciudad de México y me enfoco en crear productos digitales que no solo funcionen, sino que sean mantenibles, seguros y preparados para escalar."
   },
+
   "work": [
     {
       "name": "Siipan México",
@@ -29,17 +17,18 @@
       "url": "https://siipanmx.com/",
       "startDate": "2022-09-01",
       "endDate": null,
-      "summary": "Contribuí en el desarrollo y mantenimiento de sistemas ERP Intranet, mejorando la gestión de pedidos en tiempo real y la comunicación entre sistemas. Además, gestioné el control de versiones y automatización de procesos en servidores Linux (Ubuntu), garantizando la estabilidad de los sistemas."
+      "summary": "Responsable del desarrollo y mantenimiento de sistemas ERP internos, enfocados en la gestión de pedidos y operaciones en tiempo real. Implementé mejoras en la comunicación entre módulos del sistema, optimizando flujos de información y reduciendo tiempos de respuesta.\n\nAdministré entornos Linux (Ubuntu), automatizando procesos de despliegue y mantenimiento para garantizar estabilidad, disponibilidad y rendimiento. Participé activamente en el control de versiones (Git), asegurando integridad del código y colaboración eficiente dentro del equipo.\n\nMi enfoque estuvo orientado a escribir código limpio, reutilizable y alineado a buenas prácticas, contribuyendo a la escalabilidad del sistema."
     },
     {
-      "name": "Empeña tú prenda",
-      "position": "Full Stack Jr",
+      "name": "Empeña tu prenda",
+      "position": "Full Stack Developer Jr",
       "url": "https://miempeno.com/",
       "startDate": "2021-05-02",
       "endDate": "2022-07-30",
-      "summary": "Diseñé e implementé interfaces web atractivas y funcionales, además de desarrollar sistemas de autenticación y gestión de roles para fortalecer la seguridad de la plataforma."
+      "summary": "Participé en el desarrollo full stack de la plataforma web, diseñando e implementando interfaces modernas, responsivas y orientadas a la experiencia del usuario.\n\nDesarrollé sistemas de autenticación y control de acceso basados en roles, fortaleciendo la seguridad de la aplicación y protegiendo la integridad de los datos.\n\nColaboré en la integración entre frontend y backend, asegurando una comunicación eficiente con APIs y una correcta gestión del estado de la aplicación. Mi trabajo se centró en entregar soluciones funcionales, seguras y alineadas con los objetivos del negocio."
     }
   ],
+
   "education": [
     {
       "institution": "Universidad del Valle de México",
@@ -47,134 +36,112 @@
       "area": "Ingeniería en Diseño de Software y Redes",
       "studyType": "Ingeniería",
       "startDate": "2023-09-01",
-      "summary": "Carrera que forma profesionales en áreas como la programación, la seguridad informática y la gestión de redes.",
-      "endDate": null,
-      "score": "9.7"
+      "endDate": "2026-09-01",
+      "score": "9.7",
+      "summary": "Formación orientada al desarrollo integral de software, combinando programación, arquitectura de sistemas y redes. Esta carrera me permite entender el ciclo completo de una aplicación: desde su diseño lógico hasta su despliegue en infraestructura real.\n\nHe trabajado en proyectos donde aplico desarrollo backend, diseño de APIs, modelado de bases de datos y fundamentos de redes, lo que me permite construir soluciones completas, eficientes y escalables.\n\nMe enfoco en desarrollar software con una visión profesional: código limpio, buenas prácticas, rendimiento y mantenibilidad como pilares principales."
     }
   ],
+
   "courses": [
     {
       "platform": "Platzi",
-      "typePlatform": "Plataforma de cursos online",
-      "summary": "En esta plataforma, aprendí los fundamentos de la programación, adquirí un dominio sólido en JavaScript, destacándome en el uso de React.js y Astro. Además, me adentré en el desarrollo web con PHP y con Laravel. Integré estas habilidades con herramientas como Tailwind y Bootstrap. En cuanto a la gestión de datos, trabajé con bases de datos tanto MySQL como PostgreSQL. También perfeccioné mis habilidades en control de versiones con Git y GitHub,"
+      "typePlatform": "Plataforma de formación tecnológica",
+      "summary": "Formación continua en desarrollo web moderno. He consolidado una base sólida en JavaScript, incluyendo frameworks como React y Astro, así como el desarrollo backend con PHP y Laravel.\n\nHe trabajado con tecnologías de estilado como Tailwind y Bootstrap, priorizando diseño responsivo y experiencia de usuario.\n\nTambién cuento con experiencia en bases de datos relacionales (MySQL y PostgreSQL) y control de versiones con Git y GitHub, aplicando flujos de trabajo profesionales en proyectos reales."
     },
     {
       "platform": "Udemy",
-      "typePlatform": "Plataforma de cursos online",
-      "summary": "A través de Udemy, fortalecí mis habilidades en JavaScript y PHP, centrándome en el desarrollo web. Además, adquirí experiencia en Linux (Ubuntu) y en PHP, los cursos me brindaron una comprensión avanzada del lenguaje, incluyendo el manejo de sesiones, validación de formularios e interacción con bases de datos MySQL."
+      "typePlatform": "Plataforma de formación online",
+      "summary": "Especialización en desarrollo web con JavaScript y PHP, profundizando en conceptos clave como manejo de sesiones, validación de datos, seguridad básica e ինտegración con bases de datos.\n\nAdicionalmente, adquirí experiencia práctica en entornos Linux (Ubuntu), comprendiendo la administración básica de servidores y su relación con el despliegue de aplicaciones web."
     }
   ],
+
   "certificates": [
     {
-      "name": "IT essentials",
+      "name": "IT Essentials",
       "date": "2023-12-15",
       "issuer": "Cisco",
       "url": "https://www.credly.com/badges/2493bbdb-becf-44be-94bf-1a2f104911ce/linked_in_profile",
-      "summary": "IT Essentials, es una certificación ofrecida por Cisco, proporciona una base sólida en conceptos fundamentales de tecnología de la información. Cubriendo temas como hardware, software, redes y seguridad."
+      "summary": "Certificación que valida conocimientos fundamentales en tecnologías de la información, incluyendo hardware, sistemas operativos, redes y seguridad.\n\nEsta base técnica refuerza mi capacidad para entender no solo el desarrollo de software, sino también el entorno donde se ejecuta, permitiéndome tomar mejores decisiones a nivel de infraestructura."
     }
   ],
+
   "skills": [
+    { "name": "HTML5" },
+    { "name": "CSS3" },
+    { "name": "Tailwind CSS" },
+    { "name": "Bootstrap" },
+    { "name": "JavaScript (ES6+)" },
+    { "name": "TypeScript" },
+    { "name": "Astro" },
+    { "name": "PHP" },
+    { "name": "Laravel" },
+    { "name": "MySQL" },
+    { "name": "PostgreSQL" },
+    { "name": "Git" },
+    { "name": "GitHub" },
+    { "name": "Linux (Ubuntu)" },
+    { "name": "REST APIs" }
+  ],
+
+  "languages": [
     {
-      "name": "HTML"
-    },
-    {
-      "name": "CSS"
-    },
-    {
-      "name": "Tailwind"
-    },
-    {
-      "name": "Bootstrap"
-    },
-    {
-      "name": "JavaScript"
-    },
-    {
-      "name": "AstroJs"
-    },
-    {
-      "name": "TypeScript"
-    },
-    {
-      "name": "PHP"
-    },
-    {
-      "name": "Laravel"
-    },
-    {
-      "name": "MySQL"
-    },
-    {
-      "name": "PostgreSQL"
-    },
-    {
-      "name": "Git"
-    },
-    {
-      "name": "GitHub"
-    },
-    {
-      "name": "VSCode"
+      "language": "Spanish",
+      "fluency": "Native"
     }
-    ],
-    "languages": [
-      {
-        "language": "Spanish",
-        "fluency": "Native speaker"
-      }
-    ],
-    "interests": [
-      {
-        "name": "Wildlife"
-      }
-    ],
+  ],
+
+  "interests": [
+    {
+      "name": "Tecnología y desarrollo de software"
+    },
+    {
+      "name": "Arquitectura de sistemas"
+    }
+  ],
+
   "projects": [
     {
       "name": "mars.codes",
       "isActive": true,
-      "description": "Historia interactiva con retos de programación para viajar a Marte",
-      "highlights": ["Elige tu propia aventura", "En desarrollo"],
+      "description": "Plataforma interactiva que combina narrativa y programación, permitiendo a los usuarios aprender resolviendo retos dentro de una historia gamificada.",
+      "highlights": [
+        "Experiencia tipo 'elige tu propia aventura'",
+        "Enfoque en aprendizaje práctico",
+        "Proyecto en evolución continua"
+      ],
       "url": "https://mars.codes"
     },
     {
       "name": "AdventJS",
       "isActive": true,
-      "description": "Retos de programación en JavaScript para cada día de diciembre hasta Navidad",
+      "description": "Plataforma de retos de programación diarios durante diciembre, enfocada en mejorar habilidades en JavaScript y lógica.",
       "highlights": [
-        "+1 millón de visitas",
-        "Multidioma",
-        "JavaScript & TypeScript"
+        "+1M de visitas",
+        "Soporte multidioma",
+        "Uso de JavaScript y TypeScript"
       ],
       "url": "https://adventjs.dev"
     },
     {
       "name": "Codember",
       "isActive": true,
-      "description": "Juego interactivo de programación con retos y secretos",
-      "highlights": ["+2000 usuarios activos", "Retos para cualquier lenguaje"],
+      "description": "Juego interactivo con retos de programación y mecánicas ocultas, diseñado para fomentar el aprendizaje autodidacta.",
+      "highlights": [
+        "+2000 usuarios activos",
+        "Compatible con múltiples lenguajes"
+      ],
       "url": "https://codember.dev"
     },
     {
       "name": "codi.link",
       "isActive": true,
-      "description": "Playground de código HTML, CSS y JavaScript para compartir",
-      "highlights": ["100k visitas al mes", "Desarrollado por la comunidad"],
+      "description": "Playground online para escribir, ejecutar y compartir código HTML, CSS y JavaScript en tiempo real.",
+      "highlights": [
+        "100K visitas mensuales",
+        "Proyecto colaborativo"
+      ],
       "url": "https://codi.link",
       "github": "https://github.com/midudev/codi.link"
-    },
-    {
-      "name": "Pruebas Técnicas",
-      "isActive": true,
-      "description": "Lista de pruebas técnicas de empresas para practicar programación",
-      "highlights": ["100% gratuito", "+500 soluciones de la comunidad"],
-      "url": "https://pruebastecnicas.com",
-      "github": "https://github.com/midudev/pruebas-tecnicas"
-    },
-    {
-      "name": "miduConf",
-      "description": "Conferencia de programación en streaming para la comunidad hispanohablante con charlas top",
-      "highlights": ["+15k tickets repartidos", "+50k espectadores en directo"],
-      "url": "https://miduconf.com"
     }
   ]
 }
