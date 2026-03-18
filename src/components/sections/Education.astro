@@ -1,32 +1,29 @@
 ---
-import Section from "../Section.astro"
-import { education } from "@cv"
+import Section from "../Section.astro";
+import { education } from "@cv";
 ---
 
-<Section title="Educación">
-    <ul class="flex flex-col gap-4" >
-      {
-        education.map(
-          ({ institution, area, summary }) => {
+<Section title="Educación" translationKey="sections.education">
+  <ul class="flex flex-col gap-4">
+    {
+      education.map(({ institution, area, summary }, index) => {
+        return (
+          <li>
+            <article>
+              <header class="flex">
+                <div>
+                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{institution}</h3>
+                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base" data-i18n={`education.items.${index}.area`}>{area}</p>
+                </div>
+              </header>
 
-          return (
-            <li>
-              <article>
-                <header class="flex">
-                    <div>
-                      <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{institution}</h3>
-                      <p class="font-semibold text-gray-400 dark:text-gray-500 text-base">{area}</p>
-                    </div>
-                </header>
-
-                  <footer>
-                    <p class="text-sm mt-2 dark:text-gray-300">{summary}</p>
-                  </footer>
-              </article>
-            </li>
-          )
-        }
-      )
+              <footer>
+                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`education.items.${index}.summary`}>{summary}</p>
+              </footer>
+            </article>
+          </li>
+        );
+      })
     }
   </ul>
 </Section>

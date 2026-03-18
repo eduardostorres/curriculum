@@ -6,14 +6,7 @@ import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
 import type { SocialIcon } from "@/types";
 
-const {
-  name,
-  shortName,
-  label,
-  image,
-  profiles,
-  email,
-} = basics;
+const { name, shortName, label, image, profiles, email } = basics;
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -27,6 +20,7 @@ const SOCIAL_ICONS: SocialIcon = {
       <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
       <h2
         class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
+        data-i18n="hero.label"
       >
         {label}
       </h2>
@@ -37,6 +31,8 @@ const SOCIAL_ICONS: SocialIcon = {
               class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800  hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
               href={`mailto:${email}`}
               title={`Enviar un correo a ${email}`}
+              data-i18n-template="hero.emailTitle"
+              data-email={email}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -53,6 +49,8 @@ const SOCIAL_ICONS: SocialIcon = {
                 class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800        hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
                 href={url}
                 title={`Visita mi ${network}`}
+                data-i18n-template="hero.visitProfile"
+                data-network={network}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -68,6 +66,8 @@ const SOCIAL_ICONS: SocialIcon = {
         class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
         src={image}
         alt={`Foto de perfil de ${name}`}
+        data-i18n-template="hero.profileAlt"
+        data-name={name}
       />
     </figure>
   </div>

@@ -1,12 +1,12 @@
 ---
-import Section from "../Section.astro"
+import Section from "../Section.astro";
 
-import { basics } from "@cv"
-const { summary } = basics
+import { basics } from "@cv";
+const { summary } = basics;
 ---
 
-<Section title="Perfil">
-  <p class="mt-2 text-base dark:text-gray-300">
+<Section title="Perfil" translationKey="sections.profile">
+  <p class="mt-2 text-base dark:text-gray-300" data-i18n="profile.summary">
     {summary}
   </p>
 </Section>
