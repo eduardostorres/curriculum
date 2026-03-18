@@ -1,145 +1,46 @@
 ---
-import GitHub from "@/icons/GitHub.astro"
-import Section from "../Section.astro"
+import GitHub from "@/icons/GitHub.astro";
+import Section from "../Section.astro";
 
-import { projects } from "@cv"
+import { projects } from "@cv";
 ---
 
 <Section title="Proyectos">
-  <ul>
+  <ul class="grid gap-4 md:grid-cols-2">
     {
-      projects.map(
-        ({ url, description, highlights, name, isActive, github }) => {
-          return (
-            <li>
-              <article>
-                <header>
-                  <h3>
-                    <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+      projects.map(({ url, description, highlights, name, isActive, github }) => {
+        return (
+          <li>
+            <article class="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+              <header class="flex-1">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-gray-700 dark:text-gray-100 font-sans">
+                    <a href={url} target="_blank" rel="noopener noreferrer" title={`Ver el proyecto ${name}`}>
                       {name}
                     </a>
-                    {isActive && <span>•</span>}
-                    {github && (
-                      <a
-                        class="github-code-link"
-                        href={github}
-                        target="_blank"
-                        title={`Ver código fuente del proyecto ${name}`}
-                      >
-                        <GitHub />
-                      </a>
-                    )}
                   </h3>
-                  <p>{description}</p>
-                </header>
-                <footer>
-                  {highlights.map((highlight) => {
-                    return <span>{highlight}</span>
-                  })}
-                </footer>
-              </article>
-            </li>
-          )
-        }
-      )
+                  {isActive && <span class="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" aria-label="Proyecto activo" />}
+                  {github && (
+                    <a
+                      class="text-gray-400 transition hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                      href={github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Ver código fuente del proyecto ${name}`}
+                    >
+                      <GitHub />
+                    </a>
+                  )}
+                </div>
+                <p class="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-300">{description}</p>
+              </header>
+              <footer class="mt-4 flex flex-wrap gap-2">
+                {highlights.map((highlight) => <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">{highlight}</span>)}
+              </footer>
+            </article>
+          </li>
+        );
+      })
     }
   </ul>
 </Section>
-
-<style>
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  article {
-    border-radius: 8px;
-    border: 1px solid #f2f2f2;
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    height: 100%;
-  }
-
-  article header {
-    flex: 1;
-  }
-
-  article h3 {
-    margin-bottom: 4px;
-  }
-
-  article a {
-    color: #111;
-  }
-
-  article a:hover {
-    text-decoration: underline;
-  }
-
-  article p {
-    font-size: 0.75rem;
-    line-height: 1.2rem;
-    margin-bottom: 4px;
-  }
-
-  article h3 span {
-    color: rgb(0, 188, 47);
-    animation-name: flicker;
-    animation-duration: 3s;
-    animation-timing-function: ease-in;
-    animation-iteration-count: infinite;
-  }
-
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    font-size: 0.6rem;
-  }
-
-  footer span {
-    border-radius: 6px;
-    background: #eee;
-    color: #444;
-    font-size: 0.6rem;
-    font-weight: 500;
-    padding: 0.2rem 0.6rem;
-  }
-
-  .github-code-link {
-    margin-left: 5px;
-  }
-
-  @keyframes flicker {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.25;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @media (width <= 700px) {
-    ul {
-      margin-inline: 0px;
-    }
-
-    article {
-      border: none;
-      box-shadow: 0 1px 1px #f2f2f2;
-      padding: 0 0 16px 0;
-    }
-  }
-
-  @media print {
-    article h3 span {
-      animation-name: none;
-    }
-  }
-</style>
