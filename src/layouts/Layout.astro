@@ -205,7 +205,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       });
     </script>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <body class="min-h-screen bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
     <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
       <button
         type="button"
@@ -226,7 +226,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         🌓 <span id="theme-toggle-badge">Auto</span>
       </button>
     </div>
-    <slot />
+    <div class="relative overflow-hidden"><div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[30rem] bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.16),_transparent_55%),radial-gradient(circle_at_top_right,_rgba(99,102,241,0.14),_transparent_30%)]"></div><slot /></div>
     <script is:inline>
       const initializePreferenceToggles = () => {
         const preferences = window.__portfolioPreferences;
@@ -258,6 +258,14 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 </html>
 
 <style is:global>
+  :root { color-scheme: light dark; }
+
+  html { scroll-behavior: smooth; }
+
+  body { font-family: "Raleway Variable", system-ui, sans-serif; }
+
+  ::selection { background: rgba(14, 165, 233, 0.2); }
+
   html {
     font-family: monospace;
   }

@@ -9,7 +9,6 @@ import Hero from "@/components/sections/Hero.astro";
 import Interests from "@/components/sections/Interests.astro";
 import Languages from "@/components/sections/Languages.astro";
 import Profile from "@/components/sections/Profile.astro";
-import Projects from "@/components/sections/Projects.astro";
 import Skills from "@/components/sections/Skills.astro";
 
 import { basics } from "@cv";
@@ -17,12 +16,11 @@ const { shortName } = basics;
 ---
 
 <Layout title={`${shortName} | Curriculum Vitae`}>
-  <main class="p-8">
+  <main class="px-4 py-8 md:px-8 lg:px-12">
     <Hero />
     <Profile />
     <Experience />
     <Skills />
-    <Projects />
     <Education />
     <Certificates />
     <Courses />

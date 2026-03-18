@@ -2,20 +2,23 @@
 interface Props {
   title?: string;
   translationKey?: string;
+  className?: string;
 }
 
-const { title, translationKey } = Astro.props;
+const { title, translationKey, className = "" } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section class={`mx-auto mt-6 max-w-6xl ${className}`}>
   {
     title && (
-      <h2
-        class="font-bold mt-8 text-3xl font-sans"
-        data-i18n={translationKey}
-      >
-        {title}
-      </h2>
+      <div class="mb-5 flex items-end justify-between gap-4">
+        <h2
+          class="font-bold text-3xl tracking-tight text-slate-900 dark:text-white font-sans md:text-4xl"
+          data-i18n={translationKey}
+        >
+          {title}
+        </h2>
+      </div>
     )
   }
   <slot />

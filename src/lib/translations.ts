@@ -3,7 +3,7 @@ export const translations = {
     meta: {
       pageSuffix: 'Resume',
       description:
-        'Software developer with 2+ years of experience building user-focused web solutions from Mexico City.'
+        'Full stack developer based in Mexico City, focused on building fast, clear, and maintainable web products.'
     },
     controls: {
       theme: {
@@ -23,10 +23,25 @@ export const translations = {
       }
     },
     hero: {
-      label: 'Software Developer',
+      label: 'Software Engineer · Full Stack Developer',
+      summaryLead:
+        'I build web experiences that feel clear, fast, and maintainable, connecting polished interfaces with solid business logic.',
+      ctaEmail: 'Email me',
+      ctaCv: 'View resume',
       emailTitle: 'Send an email to {email}',
       visitProfile: 'Visit my {network}',
-      profileAlt: 'Profile picture of {name}'
+      profileAlt: 'Profile picture of {name}',
+      stackTitle: 'Core technologies',
+      cardCopy: 'Product-minded profile focused on performance and long-term maintainability.',
+      stats: {
+        experienceLabel: 'Experience',
+        experienceValue: 'years building web products',
+        focusLabel: 'Focus',
+        focusValue: 'Frontend + Backend',
+        focusBody: 'Clean UI, efficient APIs, and reliable data layers',
+        stackLabel: 'Stack',
+        stackBody: 'Fast, scalable, and well-structured solutions'
+      }
     },
     sections: {
       profile: 'Profile',
@@ -38,7 +53,13 @@ export const translations = {
     },
     profile: {
       summary:
-        '2+ years of experience as a web developer. I currently live in Mexico City, Mexico. I have contributed to the success of key projects, demonstrating my ability to deliver effective, user-centered web solutions.'
+        'Full stack software developer with 2+ years of experience building functional, clear, and results-driven web products.',
+      highlightsTitle: 'What I bring',
+      highlights: [
+        'Clear, intuitive interfaces designed for usability.',
+        'API, business logic, and relational database integration.',
+        'Continuous improvements in performance, maintainability, and code organization.'
+      ]
     },
     experience: {
       current: 'Present',
@@ -47,13 +68,13 @@ export const translations = {
           position: 'PHP Developer',
           at: 'at',
           summary:
-            'I contributed to the development and maintenance of ERP intranet systems, improving real-time order management and communication between systems. I also handled version control and process automation on Linux (Ubuntu) servers, ensuring system stability.'
+            'I developed and maintained internal ERP systems focused on real-time order management.'
         },
         {
           position: 'Junior Full Stack Developer',
           at: 'at',
           summary:
-            'I designed and implemented attractive, functional web interfaces, while also developing authentication and role management systems to strengthen platform security.'
+            'I built full stack web solutions with responsive interfaces and a strong focus on user experience.'
         }
       ]
     },
@@ -62,21 +83,21 @@ export const translations = {
         {
           area: 'Software Design and Network Engineering',
           summary:
-            'A degree program that prepares professionals in areas such as programming, cybersecurity, and network management.'
+            'A degree program focused on software development, systems architecture, and networking.'
         }
       ]
     },
     courses: {
       items: [
         {
-          typePlatform: 'Online learning platform',
+          typePlatform: 'Technology learning platform',
           summary:
-            'On this platform, I learned programming fundamentals and built strong JavaScript skills, especially with React.js and Astro. I also explored web development with PHP and Laravel, complemented by tools such as Tailwind and Bootstrap. For data management, I worked with both MySQL and PostgreSQL databases. I also strengthened my version control workflow with Git and GitHub.'
+            'Continuous learning in modern web development, with a focus on JavaScript, React, Astro, PHP, and Laravel.'
         },
         {
           typePlatform: 'Online learning platform',
           summary:
-            'Through Udemy, I strengthened my JavaScript and PHP skills with a focus on web development. I also gained experience with Linux (Ubuntu), and the PHP courses gave me an advanced understanding of the language, including session handling, form validation, and MySQL database interaction.'
+            'Focused study in JavaScript, PHP, Linux environments, and practical web development workflows.'
         }
       ]
     },
@@ -84,7 +105,7 @@ export const translations = {
       items: [
         {
           summary:
-            'IT Essentials is a Cisco certification that provides a solid foundation in core information technology concepts, covering hardware, software, networking, and security.'
+            'Enterprise networking, switching, routing, and wireless infrastructure management.'
         }
       ]
     }

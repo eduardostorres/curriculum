@@ -1,17 +1,17 @@
 ---
-import { basics, profiles } from "@cv";
+import { basics, profiles, work, skills } from "@cv";
 import Section from "@/components/Section.astro";
 import Mail from "@/icons/Mail.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
-import WorldMap from "@/icons/WorldMap.astro";
 import CV from "@/icons/CV.astro";
 import type { SocialIcon } from "@/types";
 
-const { name, shortName, label, image, email, url, availability } = basics;
+const { name, shortName, label, image, email } = basics;
 const cvFile = "https://drive.google.com/file/d/1j4NtDcRoUGnE-aOG2UTUg9XMLnmhDdQO/view?usp=drive_link";
 const cvTooltip = "Descarga mi CV";
-const websiteTooltip = "Visita mi sitio web";
+const featuredSkills = skills.slice(0, 5).map(({ name }) => name);
+const yearsExperience = new Date().getFullYear() - new Date(work.at(-1)?.startDate ?? new Date().toISOString()).getFullYear();
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -19,79 +19,88 @@ const SOCIAL_ICONS: SocialIcon = {
 };
 ---
 
-<Section>
-  <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
-    <div class="flex flex-col items-center lg:items-start">
-      <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
-      <h2
-        class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
-        data-i18n="hero.label"
-      >
-        {label}
-      </h2>
-      {
-        availability && (
-          <p class="mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
-            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            Disponible para nuevos proyectos
+<Section className="pt-4 md:pt-8">
+  <div class="grid gap-8 lg:grid-cols-[1.5fr,0.9fr] lg:items-center">
+    <div class="space-y-6">
+      <div class="space-y-4">
+        <span class="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-sm font-semibold text-sky-700 dark:border-sky-900/70 dark:bg-sky-950/50 dark:text-sky-300">
+          Full stack developer · Ciudad de México
+        </span>
+        <div class="space-y-3">
+          <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl font-sans">
+            {shortName}
+          </h1>
+          <h2 class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 md:text-xl" data-i18n="hero.label">
+            {label}
+          </h2>
+          <p class="max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="hero.summaryLead">
+            Desarrollo experiencias web claras, rápidas y mantenibles, conectando interfaces modernas con lógica de negocio sólida.
           </p>
-        )
-      }
-      <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
         {
           email && (
             <a
-              class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+              class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
               href={`mailto:${email}`}
               title={`Enviar un correo a ${email}`}
               data-i18n-template="hero.emailTitle"
               data-email={email}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <Mail />
+              <span data-i18n="hero.ctaEmail">Hablemos por correo</span>
             </a>
           )
         }
-        {
-          url && (
-            <a
-              class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-              href={url}
-              title={websiteTooltip}
-              aria-label={websiteTooltip}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <WorldMap />
-            </a>
-          )
-        }
-        <div class="group relative mt-1">
-          <a
-            class="text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
-            href={cvFile}
-            title={cvTooltip}
-            aria-label={cvTooltip}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <CV />
-          </a>
-          <span
-            class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-3 py-1 text-xs text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:bg-slate-700"
-            role="tooltip"
-          >
-            {cvTooltip}
-          </span>
+
+        <a
+          class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+          href={cvFile}
+          title={cvTooltip}
+          aria-label={cvTooltip}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CV />
+          <span data-i18n="hero.ctaCv">Ver CV</span>
+        </a>
+      </div>
+
+      <ul class="grid gap-3 sm:grid-cols-3">
+        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.experienceLabel">Experiencia</p>
+          <p class="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{yearsExperience}+</p>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.experienceValue">años creando productos web</p>
+        </li>
+        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.focusLabel">Enfoque</p>
+          <p class="mt-2 text-lg font-bold text-slate-900 dark:text-white" data-i18n="hero.stats.focusValue">Frontend + Backend</p>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.focusBody">UI limpia, APIs y bases de datos eficientes</p>
+        </li>
+        <li class="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="hero.stats.stackLabel">Stack</p>
+          <p class="mt-2 text-lg font-bold text-slate-900 dark:text-white">Astro · PHP · TS</p>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="hero.stats.stackBody">Soluciones veloces, escalables y bien estructuradas</p>
+        </li>
+      </ul>
+
+      <div class="space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400" data-i18n="hero.stackTitle">Tecnologías clave</p>
+        <div class="flex flex-wrap gap-2">
+          {featuredSkills.map((item) => <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200">{item}</span>)}
         </div>
+      </div>
+
+      <footer class="flex flex-wrap items-center gap-3 pt-2 text-slate-500 dark:text-slate-400">
         {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
 
             return (
               <a
-                class="mt-1 text-slate-500 dark:text-slate-400 inline-flex items-center justify-center border-[1px] border-solid border-gray-200 dark:border-gray-700 p-1 w-12 h-12 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[1px] hover:border-solid hover:border-gray-200 dark:hover:border-gray-600"
+                class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
                 href={url}
                 title={`Visita mi ${network}`}
                 data-i18n-template="hero.visitProfile"
@@ -100,26 +109,33 @@ const SOCIAL_ICONS: SocialIcon = {
                 rel="noopener noreferrer"
               >
                 <Icon />
+                <span>{network}</span>
               </a>
             );
           })
         }
       </footer>
     </div>
-    <figure>
-      <img
-        class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
-        src={image}
-        alt={`Foto de perfil de ${name}`}
-        data-i18n-template="hero.profileAlt"
-        data-name={name}
-      />
-    </figure>
+
+    <aside class="relative">
+      <div class="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-sky-500/20 via-cyan-500/10 to-indigo-500/20 blur-2xl" />
+      <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/85 p-6 shadow-xl shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/85">
+        <figure class="mx-auto max-w-xs text-center">
+          <img
+            class="mx-auto h-36 w-36 rounded-full object-cover ring-4 ring-white shadow-lg shadow-slate-900/10 dark:ring-slate-800"
+            src={image}
+            alt={`Foto de perfil de ${name}`}
+            data-i18n-template="hero.profileAlt"
+            data-name={name}
+          />
+          <figcaption class="mt-5 space-y-3">
+            <p class="text-lg font-semibold text-slate-900 dark:text-white">{shortName}</p>
+            <p class="text-sm leading-6 text-slate-600 dark:text-slate-300" data-i18n="hero.cardCopy">
+              Perfil orientado a producto, rendimiento y mantenimiento a largo plazo.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </aside>
   </div>
 </Section>
-
-<style>
-  footer a {
-    transition: all 0.3s ease;
-  }
-</style>

@@ -37,18 +37,21 @@ const SKILLS_ICONS: Record<string, any> = {
 ---
 
 <Section title="Habilidades" translationKey="sections.skills">
-  <ul class="inline-flex gap-2 flex-wrap mt-4">
-    {
-      skills.map(({ name }) => {
-        const iconName = name === "Next.js" ? "Next" : name;
-        const Icon = SKILLS_ICONS[iconName];
+  <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        skills.map(({ name }) => {
+          const iconName = name === "Next.js" ? "Next" : name;
+          const Icon = SKILLS_ICONS[iconName];
 
-        return (
-          <li class="items-center bg-gray-100 dark:bg-gray-800 rounded-md text-gray-400 dark:text-gray-300 flex text-sm gap-1 px-3 py-2">
-            {Icon && <Icon />} <span class="text-sm">{name}</span>
-          </li>
-        );
-      })
-    }
-  </ul>
+          return (
+            <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-200">
+              <span class="text-sky-600 dark:text-sky-300">{Icon && <Icon />}</span>
+              <span class="font-medium">{name}</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </Section>

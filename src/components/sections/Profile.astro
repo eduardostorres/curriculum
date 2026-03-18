@@ -2,11 +2,23 @@
 import Section from "../Section.astro";
 
 import { basics } from "@cv";
-const { summary } = basics;
+const summaryParagraphs = basics.summary.split("\n\n");
 ---
 
 <Section title="Perfil" translationKey="sections.profile">
-  <p class="mt-2 text-base dark:text-gray-300" data-i18n="profile.summary">
-    {summary}
-  </p>
+  <div class="grid gap-4 md:grid-cols-[1.4fr,0.9fr] md:items-start">
+    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div class="space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300">
+        {summaryParagraphs.map((paragraph, index) => <p data-i18n={index === 0 ? "profile.summary" : undefined}>{paragraph}</p>)}
+      </div>
+    </div>
+    <aside class="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400" data-i18n="profile.highlightsTitle">Lo que aporto</p>
+      <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+        <li data-i18n="profile.highlights.0">Construcción de interfaces intuitivas con foco en claridad visual.</li>
+        <li data-i18n="profile.highlights.1">Integración de APIs, lógica de negocio y bases de datos relacionales.</li>
+        <li data-i18n="profile.highlights.2">Mejora continua de rendimiento, mantenimiento y organización del código.</li>
+      </ul>
+    </aside>
+  </div>
 </Section>
