@@ -3,7 +3,7 @@ import Section from "../Section.astro";
 import { certificates } from "@cv";
 ---
 
-<Section title="Certificados" translationKey="sections.certificates">
+<Section id="certificados" title="Certificados" translationKey="sections.certificates" description="Certificaciones relevantes para reforzar credenciales y conocimientos.">
   <ul class="flex flex-col gap-4">
     {
       certificates.map(({ name, issuer, summary }, index) => {

@@ -1,21 +1,36 @@
 ---
 interface Props {
+  id?: string;
   title?: string;
   translationKey?: string;
+  description?: string;
 }
 
-const { title, translationKey } = Astro.props;
+const { id, title, translationKey, description } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section id={id} class="group scroll-mt-24 rounded-3xl border border-transparent px-4 py-6 transition-colors duration-300 md:px-6 md:py-7 hover:border-gray-200/80 hover:bg-white/70 dark:hover:border-gray-700/80 dark:hover:bg-gray-900/40">
   {
     title && (
-      <h2
-        class="font-bold mt-8 text-3xl font-sans"
-        data-i18n={translationKey}
-      >
-        {title}
-      </h2>
+      <header class="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2
+            class="font-bold text-3xl font-sans tracking-tight text-gray-900 dark:text-gray-50"
+            data-i18n={translationKey}
+          >
+            {title}
+          </h2>
+          {description && <p class="mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400">{description}</p>}
+        </div>
+        <a
+          href={`#${id}`}
+          class="text-sm font-medium text-gray-400 opacity-0 transition group-hover:opacity-100 hover:text-gray-600 focus:opacity-100 focus:outline-none dark:text-gray-500 dark:hover:text-gray-300"
+          aria-label={`Enlace directo a la sección ${title}`}
+          title={`Enlace directo a la sección ${title}`}
+        >
+          #{id}
+        </a>
+      </header>
     )
   }
   <slot />

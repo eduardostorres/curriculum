@@ -22,6 +22,15 @@ const fallbackMeta = {
   }
 };
 const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
+const quickLinks = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#perfil", label: "Perfil" },
+  { href: "#experiencia", label: "Experiencia" },
+  { href: "#habilidades", label: "Habilidades" },
+  { href: "#educacion", label: "Educación" },
+  { href: "#certificados", label: "Certificados" },
+  { href: "#cursos", label: "Cursos" }
+];
 ---
 
 <!doctype html>
@@ -205,28 +214,59 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
       });
     </script>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
-      <button
-        type="button"
-        id="language-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to English"
-        title="Switch to English"
-      >
-        🌐 <span id="language-toggle-badge">ES</span>
-      </button>
-      <button
-        type="button"
-        id="theme-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to dark mode"
-        title="Switch to dark mode"
-      >
-        🌓 <span id="theme-toggle-badge">Auto</span>
-      </button>
-    </div>
+  <body class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.10),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#eef2ff_35%,_#f8fafc)] text-gray-900 transition-colors duration-300 dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.16),_transparent_30%),linear-gradient(to_bottom,_#020617,_#0f172a_30%,_#020617)] dark:text-gray-100">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-slate-950 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Saltar al contenido</a>
+
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-white/60 bg-white/70 backdrop-blur-xl dark:border-gray-800/80 dark:bg-slate-950/65">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#inicio" class="truncate text-sm font-bold uppercase tracking-[0.24em] text-slate-700 dark:text-slate-200">{shortName}</a>
+        <nav aria-label="Secciones del CV" class="hidden flex-1 justify-center md:flex">
+          <ul class="flex flex-wrap items-center justify-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+            {quickLinks.map((link) => (
+              <li>
+                <a class="rounded-full px-3 py-2 transition hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950" href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            id="language-toggle"
+            class="flex items-center gap-2 rounded-full border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+            aria-label="Switch to English"
+            title="Switch to English"
+          >
+            🌐 <span id="language-toggle-badge">ES</span>
+          </button>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="flex items-center gap-2 rounded-full border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+            aria-label="Switch to dark mode"
+            title="Switch to dark mode"
+          >
+            🌓 <span id="theme-toggle-badge">Auto</span>
+          </button>
+        </div>
+      </div>
+      <div class="scrollbar-hidden overflow-x-auto border-t border-white/50 px-4 py-2 md:hidden dark:border-gray-800/60">
+        <nav aria-label="Navegación rápida móvil">
+          <ul class="flex w-max gap-2 pr-4 text-sm text-slate-600 dark:text-slate-300">
+            {quickLinks.map((link) => (
+              <li>
+                <a class="block rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 shadow-sm transition hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:bg-slate-900/80 dark:hover:bg-white dark:hover:text-slate-950" href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <slot />
+
+    <a href="#inicio" class="fixed bottom-5 right-5 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-lg text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200" aria-label="Volver arriba" title="Volver arriba">↑</a>
+
     <script is:inline>
       const initializePreferenceToggles = () => {
         const preferences = window.__portfolioPreferences;
@@ -259,6 +299,23 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
 <style is:global>
   html {
-    font-family: monospace;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Raleway Variable", sans-serif;
+  }
+
+  .font-sans {
+    font-family: "Raleway Variable", sans-serif;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
   }
 </style>

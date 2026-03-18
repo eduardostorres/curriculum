@@ -17,17 +17,17 @@ const SOCIAL_ICONS: SocialIcon = {
 };
 ---
 
-<Section>
-  <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
+<Section id="inicio">
+  <div class="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row lg:gap-12">
     <div class="flex flex-col items-center lg:items-start">
-      <h1 class="flex font-bold text-4xl text-center font-sans">{shortName}</h1>
+      <h1 class="flex text-center font-sans text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-5xl lg:text-left">{shortName}</h1>
       <h2
-        class="text-gray-400 dark:text-gray-300 text-balance text-lg mt-2"
+        class="mt-3 max-w-2xl text-balance text-center text-lg text-gray-500 dark:text-gray-300 lg:text-left"
         data-i18n="hero.label"
       >
         {label}
       </h2>
-      <footer class="text-gray-500 dark:text-gray-400 flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+      <footer class="mt-5 flex flex-wrap justify-center gap-3 text-gray-500 dark:text-gray-400 lg:justify-start">
         {
           email && (
             <a
@@ -84,7 +84,7 @@ const SOCIAL_ICONS: SocialIcon = {
     </div>
     <figure>
       <img
-        class="w-36 h-36 p-1 object-cover rounded-full ring-2 ring-gray-500 dark:ring-gray-400"
+        class="h-36 w-36 rounded-full object-cover p-1 shadow-xl ring-4 ring-white dark:ring-gray-800 sm:h-40 sm:w-40"
         src={image}
         alt={`Foto de perfil de ${name}`}
         data-i18n-template="hero.profileAlt"
