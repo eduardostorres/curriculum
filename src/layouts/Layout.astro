@@ -22,6 +22,14 @@ const fallbackMeta = {
   }
 };
 const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
+const sectionNav: Array<{ href: string; es: string; en: string }> = [
+  { href: "#perfil", es: "Perfil", en: "Profile" },
+  { href: "#experiencia", es: "Experiencia", en: "Experience" },
+  { href: "#habilidades", es: "Habilidades", en: "Skills" },
+  { href: "#educacion", es: "Educación", en: "Education" },
+  { href: "#certificados", es: "Certificados", en: "Certificates" },
+  { href: "#cursos", es: "Cursos", en: "Courses" }
+];
 ---
 
 <!doctype html>
@@ -206,32 +214,96 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     </script>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
-      <button
-        type="button"
-        id="language-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to English"
-        title="Switch to English"
+    <a
+      href="#top"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white dark:focus:bg-slate-100 dark:focus:text-slate-900"
+    >
+      Saltar al contenido
+    </a>
+    <div class="fixed inset-x-4 top-4 z-50 mx-auto flex max-w-6xl flex-col gap-3 lg:inset-x-auto lg:right-4 lg:mx-0 lg:max-w-none">
+      <nav
+        aria-label="Navegación rápida"
+        class="overflow-x-auto rounded-2xl border border-gray-200 bg-white/85 px-3 py-2 shadow-lg backdrop-blur dark:border-gray-700 dark:bg-gray-900/85"
       >
-        🌐 <span id="language-toggle-badge">ES</span>
-      </button>
-      <button
-        type="button"
-        id="theme-toggle"
-        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
-        aria-label="Switch to dark mode"
-        title="Switch to dark mode"
-      >
-        🌓 <span id="theme-toggle-badge">Auto</span>
-      </button>
+        <ul class="flex min-w-max items-center gap-2">
+          {
+            sectionNav.map(({ href, es, en }) => (
+              <li>
+                <a
+                  href={href}
+                  class="inline-flex rounded-full px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
+                  data-label-es={es}
+                  data-label-en={en}
+                >
+                  {es}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="flex justify-end gap-2">
+        <button
+          type="button"
+          id="language-toggle"
+          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          aria-label="Switch to English"
+          title="Switch to English"
+        >
+          🌐 <span id="language-toggle-badge">ES</span>
+        </button>
+        <button
+          type="button"
+          id="theme-toggle"
+          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+        >
+          🌓 <span id="theme-toggle-badge">Auto</span>
+        </button>
+      </div>
     </div>
+    <button
+      type="button"
+      id="back-to-top"
+      class="pointer-events-none fixed bottom-4 right-4 z-50 translate-y-4 rounded-full border border-gray-300 bg-white/90 px-4 py-3 text-sm font-semibold text-gray-700 opacity-0 shadow-lg transition-all duration-300 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:border-gray-600 dark:bg-gray-900/90 dark:text-gray-100 dark:hover:bg-gray-800"
+      aria-label="Volver arriba"
+      title="Volver arriba"
+    >
+      ↑ Arriba
+    </button>
     <slot />
     <script is:inline>
       const initializePreferenceToggles = () => {
         const preferences = window.__portfolioPreferences;
         const themeToggle = document.getElementById('theme-toggle');
         const languageToggle = document.getElementById('language-toggle');
+        const backToTop = document.getElementById('back-to-top');
+        const navLinks = Array.from(document.querySelectorAll('nav a[data-label-es]'));
+
+        const updateNavigationLanguage = () => {
+          const isEnglish = document.documentElement.lang === 'en';
+
+          navLinks.forEach((link) => {
+            const label = link.getAttribute(isEnglish ? 'data-label-en' : 'data-label-es');
+            if (label) link.textContent = label;
+          });
+
+          if (backToTop) {
+            const label = isEnglish ? 'Back to top' : 'Volver arriba';
+            backToTop.textContent = isEnglish ? '↑ Top' : '↑ Arriba';
+            backToTop.setAttribute('aria-label', label);
+            backToTop.setAttribute('title', label);
+          }
+        };
+
+        const toggleBackToTop = () => {
+          if (!backToTop) return;
+          const shouldShow = window.scrollY > 320;
+          backToTop.classList.toggle('pointer-events-none', !shouldShow);
+          backToTop.classList.toggle('opacity-0', !shouldShow);
+          backToTop.classList.toggle('translate-y-4', !shouldShow);
+        };
 
         themeToggle?.addEventListener('click', () => {
           const isDark = document.documentElement.classList.contains('dark');
@@ -245,7 +317,16 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           const nextLanguage = currentLanguage === 'en' ? 'es' : 'en';
           localStorage.setItem('language', nextLanguage);
           preferences?.applyLanguage(nextLanguage);
+          updateNavigationLanguage();
         });
+
+        backToTop?.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        updateNavigationLanguage();
+        toggleBackToTop();
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
       };
 
       if (document.readyState === 'loading') {

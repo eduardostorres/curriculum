@@ -3,7 +3,7 @@ import Section from "../Section.astro";
 import { courses } from "@cv";
 ---
 
-<Section title="Cursos" translationKey="sections.courses">
+<Section id="cursos" title="Cursos" translationKey="sections.courses">
   <ul class="flex flex-col gap-4 mb-4">
     {
       courses.map(({ platform, summary, typePlatform }, index) => {

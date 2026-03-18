@@ -2,12 +2,13 @@
 interface Props {
   title?: string;
   translationKey?: string;
+  id?: string;
 }
 
-const { title, translationKey } = Astro.props;
+const { title, translationKey, id } = Astro.props;
 ---
 
-<section class="m-auto mt-2 max-w-4xl">
+<section id={id} class="m-auto mt-2 max-w-4xl scroll-mt-24">
   {
     title && (
       <h2
