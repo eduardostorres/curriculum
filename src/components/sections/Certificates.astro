@@ -1,12 +1,12 @@
 ---
-import Section from "../Section.astro"
-import { certificates } from "@cv"
+import Section from "../Section.astro";
+import { certificates } from "@cv";
 ---
 
-<Section title="Certificados">
+<Section title="Certificados" translationKey="sections.certificates">
   <ul class="flex flex-col gap-4">
     {
-      certificates.map(({ name, issuer, summary }) => {
+      certificates.map(({ name, issuer, summary }, index) => {
         return (
           <li>
             <article>
@@ -17,11 +17,11 @@ import { certificates } from "@cv"
                 </div>
               </header>
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300">{summary}</p>
+                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`certificates.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>
-        )
+        );
       })
     }
   </ul>

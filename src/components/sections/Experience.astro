@@ -4,19 +4,20 @@ import Section from "../Section.astro";
 import { work } from "@cv";
 ---
 
-<Section title="Experiencia laboral">
+<Section title="Experiencia laboral" translationKey="sections.experience">
   <ul class="relative border-s border-gray-200 dark:border-gray-700">
     {
-      work.map(({ name, startDate, endDate, position, summary, url }) => {
+      work.map(({ name, startDate, endDate, position, summary, url }, index) => {
         const startYear = new Date(startDate).getFullYear();
-        const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual";
+        const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual";
 
         return (
           <li class="mb-5 ms-4">
             <div class="absolute w-3 h-3 bg-gray-500 dark:bg-gray-400 rounded-full mt-2 -start-1.5 border border-gray-500 dark:border-gray-400" />
             <h3 class="font-bold text-gray-500 dark:text-gray-400 text-base mt-5 font-sans">
-              {position} en <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+              <span data-i18n={`experience.items.${index}.position`}>{position}</span>{" "}
+              <span data-i18n={`experience.items.${index}.at`}>en</span>{" "}
+              <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
             </h3>
             <time
               class="font-semibold text-gray-400 dark:text-gray-500 text-base min-w-25 cursor-default"
@@ -30,10 +31,11 @@ import { work } from "@cv";
               class="font-semibold text-gray-400 dark:text-gray-500 text-base min-w-25 cursor-default"
               datetime={endDate}
               data-title={endDate}
+              data-i18n={endDate == null ? 'experience.current' : undefined}
             >
               {endYear}
             </time>
-            <p class="text-sm mt-2 dark:text-gray-300">{summary}</p>
+            <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`experience.items.${index}.summary`}>{summary}</p>
           </li>
         );
       })
