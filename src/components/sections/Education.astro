@@ -9,16 +9,16 @@ import { education } from "@cv";
       education.map(({ institution, area, summary }, index) => {
         return (
           <li>
-            <article>
-              <header class="flex">
-                <div>
-                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{institution}</h3>
-                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base" data-i18n={`education.items.${index}.area`}>{area}</p>
-                </div>
+            <article class="item-card">
+              <header>
+                <h3 class="item-title">{institution}</h3>
+                <p class="item-subtitle mt-2 text-base font-semibold" data-i18n={`education.items.${index}.area`}>
+                  {area}
+                </p>
               </header>
 
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`education.items.${index}.summary`}>{summary}</p>
+                <p class="item-copy" data-i18n={`education.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>

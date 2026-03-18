@@ -9,15 +9,13 @@ import { certificates } from "@cv";
       certificates.map(({ name, issuer, summary }, index) => {
         return (
           <li>
-            <article>
-              <header class="flex">
-                <div>
-                  <h3 class="font-bold mt-2 text-gray-500 dark:text-gray-400 font-sans">{name}</h3>
-                  <p class="font-semibold text-gray-400 dark:text-gray-500 text-base">{issuer}</p>
-                </div>
+            <article class="item-card">
+              <header>
+                <h3 class="item-title">{name}</h3>
+                <p class="item-subtitle mt-2 text-base font-semibold">{issuer}</p>
               </header>
               <footer>
-                <p class="text-sm mt-2 dark:text-gray-300" data-i18n={`certificates.items.${index}.summary`}>{summary}</p>
+                <p class="item-copy" data-i18n={`certificates.items.${index}.summary`}>{summary}</p>
               </footer>
             </article>
           </li>
