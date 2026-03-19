@@ -3,7 +3,7 @@ export const translations = {
     meta: {
       pageSuffix: 'Resume',
       description:
-        'Software developer with 2+ years of experience building robust, scalable, user-focused web applications from Mexico City.'
+        'Full Stack Developer with 3+ years of experience. Specialized in ERP systems, service integrations, and application development with PHP, Java, and JavaScript, focused on performance, maintainability, and business impact.'
     },
     controls: {
       theme: {
@@ -40,7 +40,7 @@ export const translations = {
     },
     profile: {
       summary:
-        'Software developer with more than 2 years of experience building robust, scalable, user-focused web applications. I specialize in full stack development, combining modern frontends with solid backends, well-designed APIs, and optimized databases.\n\nI have worked on ERP-style business systems, improving critical processes and communication between systems. I complement my profile with networking knowledge (CCNA), which allows me to understand how applications interact at the infrastructure level.\n\nI stand out for writing clean, maintainable, results-oriented code. I am currently based in Mexico City and looking to contribute real value while continuing to grow technically.'
+        'Full Stack Developer with 3+ years of experience. Specialized in ERP systems, service integrations, and application development with PHP, Java, and JavaScript, focused on performance, maintainability, and business impact.'
     },
     experience: {
       current: 'Present',
@@ -49,13 +49,13 @@ export const translations = {
           position: 'PHP Developer',
           at: 'at',
           summary:
-            'Development and maintenance of internal ERP systems focused on real-time order management.\n\nI optimized communication between system modules, improving the efficiency of information flows and reducing response times.\n\nI managed Linux (Ubuntu) environments, automating deployment and maintenance processes to ensure stability, availability, and performance.\n\nI implemented Git version control best practices, making collaboration and code traceability easier.'
+            'I was responsible for developing and maintaining internal ERP systems focused on real-time order management.\n\nDuring this process, I optimized communication between different modules, helping information flow more efficiently and reducing response times.\n\nI also managed Linux (Ubuntu) environments, where I automated deployment and maintenance processes to ensure stable and efficient operation.\n\nIn addition, I worked with Git following best practices, which made team collaboration easier and improved code change tracking.'
         },
         {
           position: 'Junior Full Stack Developer',
           at: 'at',
           summary:
-            'Full stack development of a web platform, implementing modern, responsive interfaces focused on user experience.\n\nI designed and implemented role-based authentication and access control systems, strengthening application security.\n\nI integrated frontend and backend through APIs, ensuring efficient communication and proper data management.'
+            'I worked on the full stack development of a web platform, creating modern, responsive interfaces centered on user experience.\n\nI also designed and implemented role-based authentication and access control systems, strengthening application security.\n\nIn addition, I integrated the frontend with the backend through APIs, ensuring efficient communication and proper data management.'
         }
       ]
     },
@@ -64,7 +64,7 @@ export const translations = {
         {
           area: 'Software Design and Network Engineering',
           summary:
-            'Training focused on comprehensive software development, combining programming, systems architecture, and networking.\n\nI build complete solutions that range from backend logic to deployment on real infrastructure.\n\nI apply concepts such as API design, database modeling, and networking fundamentals to build scalable, efficient, well-structured systems.'
+            'Education focused on comprehensive software development, combining programming, systems architecture, and networking.\n\nI build complete solutions that range from backend logic to deployment on real infrastructure.\n\nI apply concepts such as API design, database modeling, and networking fundamentals.'
         }
       ]
     },
@@ -73,12 +73,12 @@ export const translations = {
         {
           typePlatform: 'Technology training platform',
           summary:
-            'Continuous learning in modern web development, focused on JavaScript, React, Astro, and backend development with PHP and Laravel.\n\nExperience with responsive design using Tailwind and Bootstrap.\n\nProficiency with relational databases (MySQL, PostgreSQL) and version control using Git and GitHub.'
+            'Continuous training in modern web development, focused on JavaScript, React, Astro, and backend development with PHP and Laravel.\n\nExperience in responsive design with Tailwind and Bootstrap.\n\nWorking knowledge of relational databases (MySQL, PostgreSQL) and version control with Git and GitHub.'
         },
         {
           typePlatform: 'Online learning platform',
           summary:
-            'Specialized training in web development with JavaScript and PHP, including session handling, data validation, and database integration.\n\nExperience working in Linux (Ubuntu) environments and basic server administration.'
+            'Specialization in web development with JavaScript and PHP, including session handling, data validation, and database integration.\n\nExperience in Linux (Ubuntu) environments and basic server administration.'
         }
       ]
     },
@@ -86,7 +86,7 @@ export const translations = {
       items: [
         {
           summary:
-            'Configuration and administration of enterprise networks, including switching, routing, and wireless networking.\n\nImplementation of VLANs, static and dynamic routing, Cisco device configuration, and troubleshooting.\n\nAbility to design stable, secure, scalable networks.'
+            'Configuration and administration of enterprise networks, including switching, routing, and wireless networking.\n\nImplementation of VLANs, static and dynamic routing, Cisco device configuration, and troubleshooting.\n\nAbility to design stable, secure, and scalable networks.'
         },
         {
           summary:
