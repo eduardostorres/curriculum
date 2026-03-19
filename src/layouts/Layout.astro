@@ -221,12 +221,12 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
     </script>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <div class="fixed right-4 top-4 z-50 flex flex-col gap-2 sm:flex-row">
+    <div class="fixed bottom-4 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-max -translate-x-1/2 flex-row justify-center gap-2 sm:bottom-auto sm:left-auto sm:right-4 sm:top-4 sm:w-auto sm:translate-x-0">
       <div class="header-tooltip-wrapper">
         <button
           type="button"
           id="language-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="flex min-w-[8.5rem] items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/85 dark:text-gray-100 dark:hover:bg-gray-800 sm:min-w-0"
           aria-label="Switch to English"
           title="Switch to English"
           data-tooltip-content="Switch to English"
@@ -239,7 +239,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         <button
           type="button"
           id="theme-toggle"
-          class="flex items-center gap-2 rounded-md border border-gray-300 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/80 dark:text-gray-100 dark:hover:bg-gray-800"
+          class="flex min-w-[8.5rem] items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/85 dark:text-gray-100 dark:hover:bg-gray-800 sm:min-w-0"
           aria-label="Switch to dark mode"
           title="Switch to dark mode"
           data-tooltip-content="Switch to dark mode"
@@ -295,8 +295,9 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
   .header-tooltip-wrapper .header-tooltip {
     pointer-events: none;
     position: absolute;
-    right: 0;
-    top: calc(100% + 0.5rem);
+    left: 50%;
+    bottom: calc(100% + 0.5rem);
+    transform: translateX(-50%);
     z-index: 60;
     white-space: nowrap;
     border-radius: 0.375rem;
@@ -317,5 +318,15 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
   .dark .header-tooltip-wrapper .header-tooltip {
     background: rgb(51 65 85);
+  }
+
+  @media (min-width: 640px) {
+    .header-tooltip-wrapper .header-tooltip {
+      left: auto;
+      right: 0;
+      bottom: auto;
+      top: calc(100% + 0.5rem);
+      transform: none;
+    }
   }
 </style>
