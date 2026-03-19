@@ -119,7 +119,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         }
 
         return element.dataset.i18nTemplateFallback ?? {
-          'hero.emailTitle': `Enviar un correo a ${element.getAttribute('data-email') ?? ''}`,
+          'hero.emailTitle': `Envía un correo a ${element.getAttribute('data-email') ?? ''}`,
           'hero.visitProfile': `Visita mi ${element.getAttribute('data-network') ?? ''}`,
           'hero.profileAlt': `Foto de perfil de ${element.getAttribute('data-name') ?? ''}`
         }[key] ?? '';
