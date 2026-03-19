@@ -72,15 +72,19 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         return media.matches ? 'dark' : 'light';
       };
 
+      const getControlsDictionary = (language) => translations[language] ?? translations.es;
+
       const applyTheme = (theme) => {
         root.classList.toggle('dark', theme === 'dark');
         root.dataset.theme = theme;
         const button = document.getElementById('theme-toggle');
         const tooltip = document.getElementById('theme-toggle-tooltip');
         const badge = document.getElementById('theme-toggle-badge');
+        const currentLanguage = root.lang === 'en' ? 'en' : 'es';
+        const controls = getControlsDictionary(currentLanguage).controls;
         const label = theme === 'dark'
-          ? translations.en.controls.theme.light
-          : translations.en.controls.theme.dark;
+          ? controls.theme.light
+          : controls.theme.dark;
 
         if (button) {
           button.setAttribute('aria-label', label);
@@ -94,8 +98,8 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
         if (badge) {
           badge.textContent = theme === 'dark'
-            ? translations.en.controls.badges.dark
-            : translations.en.controls.badges.light;
+            ? controls.badges.dark
+            : controls.badges.light;
         }
       };
 
@@ -130,6 +134,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         root.dataset.language = language;
 
         const dictionary = language === 'en' ? translations.en : null;
+        const controls = getControlsDictionary(language).controls;
         const meta = metaByLanguage[language] ?? metaByLanguage.es;
 
         document.title = meta.title;
@@ -167,12 +172,14 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
           if (element instanceof HTMLImageElement) {
             element.alt = value;
-          } else {
+          } else if (element.hasAttribute('title') || element.hasAttribute('aria-label')) {
             element.setAttribute('title', value);
             element.setAttribute('aria-label', value);
             if (element.hasAttribute('data-tooltip-content')) {
               element.setAttribute('data-tooltip-content', value);
             }
+          } else {
+            element.textContent = value;
           }
         });
 
@@ -180,8 +187,8 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         const languageTooltip = document.getElementById('language-toggle-tooltip');
         const languageBadge = document.getElementById('language-toggle-badge');
         const nextLanguageLabel = language === 'en'
-          ? translations.en.controls.language.es
-          : 'Switch to English';
+          ? controls.language.es
+          : controls.language.en;
 
         if (languageButton) {
           languageButton.setAttribute('aria-label', nextLanguageLabel);
@@ -195,8 +202,8 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
         if (languageBadge) {
           languageBadge.textContent = language === 'en'
-            ? translations.en.controls.badges.langEn
-            : translations.en.controls.badges.langEs;
+            ? controls.badges.langEn
+            : controls.badges.langEs;
         }
       };
 
@@ -227,26 +234,26 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           type="button"
           id="language-toggle"
           class="flex min-w-[8.5rem] items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/85 dark:text-gray-100 dark:hover:bg-gray-800 sm:min-w-0"
-          aria-label="Switch to English"
-          title="Switch to English"
-          data-tooltip-content="Switch to English"
+          aria-label="Cambiar a inglés"
+          title="Cambiar a inglés"
+          data-tooltip-content="Cambiar a inglés"
         >
           🌐 <span id="language-toggle-badge">ES</span>
         </button>
-        <span class="header-tooltip" id="language-toggle-tooltip" role="tooltip">Switch to English</span>
+        <span class="header-tooltip" id="language-toggle-tooltip" role="tooltip">Cambiar a inglés</span>
       </div>
       <div class="header-tooltip-wrapper">
         <button
           type="button"
           id="theme-toggle"
           class="flex min-w-[8.5rem] items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/85 px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900/85 dark:text-gray-100 dark:hover:bg-gray-800 sm:min-w-0"
-          aria-label="Switch to dark mode"
-          title="Switch to dark mode"
-          data-tooltip-content="Switch to dark mode"
+          aria-label="Cambiar a modo oscuro"
+          title="Cambiar a modo oscuro"
+          data-tooltip-content="Cambiar a modo oscuro"
         >
-          🌓 <span id="theme-toggle-badge">Auto</span>
+          🌓 <span id="theme-toggle-badge">Claro</span>
         </button>
-        <span class="header-tooltip" id="theme-toggle-tooltip" role="tooltip">Switch to dark mode</span>
+        <span class="header-tooltip" id="theme-toggle-tooltip" role="tooltip">Cambiar a modo oscuro</span>
       </div>
     </div>
     <slot />
