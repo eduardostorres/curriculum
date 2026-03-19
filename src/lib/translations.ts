@@ -81,7 +81,7 @@ export const translations = {
     education: {
       items: [
         {
-          area: 'Software Design and Network Engineering',
+          area: 'Software and Network Design Engineering',
           summary:
             'Education focused on comprehensive software development, combining programming, systems architecture, and networking.\n\nI build complete solutions that range from backend logic to deployment on real infrastructure.\n\nI apply concepts such as API design, database modeling, and networking fundamentals.'
         }
