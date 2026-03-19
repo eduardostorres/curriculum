@@ -1,4 +1,23 @@
 export const translations = {
+  es: {
+    controls: {
+      theme: {
+        light: 'Cambiar a modo claro',
+        dark: 'Cambiar a modo oscuro'
+      },
+      language: {
+        es: 'Cambiar a español',
+        en: 'Cambiar a inglés'
+      },
+      badges: {
+        auto: 'Auto',
+        dark: 'Oscuro',
+        light: 'Claro',
+        langEs: 'ES',
+        langEn: 'EN'
+      }
+    }
+  },
   en: {
     meta: {
       pageSuffix: 'Resume',
