@@ -1,55 +1,65 @@
 # Curriculum Vitae
 
-## Visión General
+## Overview
 
-Este proyecto consiste en una versión detallada de mi curriculum vitae en la web, desarrollada utilizando Astro, Tailwind CSS, CSS3 y JavaScript. Se emplea JSON para la organización y almacenamiento de la información.
+This project consists of a detailed web-based version of my résumé, developed using Astro, Tailwind CSS, CSS3, and JavaScript. JSON is used for organizing and storing the information.
 
-La inspiración para este proyecto proviene del portafolio de Bartosz Jarocki en cv.jarocki.me, a quien se le otorga el crédito correspondiente. [aquí](https://cv.jarocki.me/).
+The inspiration for this project comes from Bartosz Jarocki's portfolio at cv.jarocki.me, to whom proper credit is given: https://cv.jarocki.me/
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-- Astro: Utilizado como el framework para la construcción de la página web, garantizando tiempos de carga eficientes y rápidos.
-- Tailwind CSS: Empleado para estilizar la página web, asegurando un diseño moderno y adaptable.
-- CSS3: Se implementaron características adicionales de estilo utilizando CSS3 para mejorar el atractivo visual y la personalización.
-- JavaScript: Utilizado para la manipulación de contenido dinámico e interactividad dentro de la página web.
-- JSON: Los datos se estructuran en formato JSON para una gestión y recuperación sencilla.
+- **Astro**: Used as the main framework for building the website, ensuring fast and efficient load times.
+- **Tailwind CSS**: Used for styling the website, providing a modern and responsive design.
+- **CSS3**: Additional styling features were implemented to enhance visual appeal and customization.
+- **JavaScript**: Used for handling dynamic content and interactivity within the website.
+- **JSON**: Data is structured in JSON format for easy management and retrieval.
 
-## Características
+## Features
 
-- Diseño Responsivo: Garantiza la compatibilidad en varios dispositivos y tamaños de pantalla.
-- Contenido Dinámico: El contenido se carga y actualiza dinámicamente utilizando JavaScript, ofreciendo una experiencia de usuario fluida.
-- Estilo Personalizado: Tailwind CSS permite una personalización extensiva, asegurando un diseño único y visualmente atractivo.
-- Carga Eficiente: El framework de Astro optimiza los tiempos de carga, mejorando el rendimiento para los usuarios.
-- Modo oscuro: interfaz adaptable que puede alternarse para una experiencia más cómoda en entornos con poca luz.
+- **Responsive Design**: Ensures compatibility across various devices and screen sizes.
+- **Dynamic Content**: Content is dynamically loaded and updated using JavaScript, providing a smooth user experience.
+- **Custom Styling**: Tailwind CSS enables extensive customization, ensuring a unique and visually appealing design.
+- **Efficient Loading**: Astro optimizes load times, improving performance for users.
+- **Dark Mode**: An adaptable interface that can be toggled for a more comfortable experience in low-light environments.
 
-## Uso
+## Usage
 
-Para comenzar con este proyecto, sigue estos pasos:
+To get started with this project, follow these steps:
 
-1. Clona el repositorio.
-2. Navega hasta el directorio del proyecto.
-3. Personaliza los archivos de datos JSON en el proyecto para reflejar tu información y experiencias personales.
-4. Inicializa el proyecto utilizando PNPM:
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Customize the JSON data files in the project to reflect your personal information and experience.
+4. Install dependencies using PNPM:
+
 ```bash
 pnpm install
 ```
 
-5. Ejecuta el proyecto localmente para previsualizar cambios y asegurar su funcionalidad adecuada:
+5. Run the project locally to preview changes and ensure everything works correctly:
+
 ```bash
 pnpm run dev
 ```
 
-## Créditos
+## Credits
 
-- **Inspiración**:
-  - Bartosz Jarocki - Inspiración para el diseño y diseño del proyecto. Visita [el portafolio de Bartosz Jarocki](https://cv.jarocki.me/) y también el trabajo de [Miguel Ángel Durán](https://github.com/midudev/minimalist-portfolio-json).
+- **Inspiration**:  
+  Bartosz Jarocki – Inspiration for the project design and layout.  
+  https://cv.jarocki.me/  
 
-- **Frameworks y Bibliotecas**:
-  - Astro: [Astro](https://astro.build/)
-  - Tailwind CSS: [Tailwind CSS](https://tailwindcss.com/)
+  Miguel Ángel Durán  
+  https://github.com/midudev/minimalist-portfolio-json  
 
-- **Contribuidores**:
-  - [Eduardo Sánchez](https://github.com/edvardodev)
+- **Frameworks and Libraries**:  
+  Astro – https://astro.build/  
+  Tailwind CSS – https://tailwindcss.com/  
 
-## Licencia
-Este proyecto está bajo la [Licencia MIT](https://opensource.org/licenses/MIT). Siéntete libre de modificar según los términos de la licencia.
+- **Contributor**:  
+  Eduardo Sánchez – https://github.com/edvardodev  
+
+## License
+
+This project is licensed under the MIT License:  
+https://opensource.org/licenses/MIT  
+
+Feel free to modify it according to the terms of the license.
