@@ -172,12 +172,14 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
 
           if (element instanceof HTMLImageElement) {
             element.alt = value;
-          } else {
+          } else if (element.hasAttribute('title') || element.hasAttribute('aria-label')) {
             element.setAttribute('title', value);
             element.setAttribute('aria-label', value);
             if (element.hasAttribute('data-tooltip-content')) {
               element.setAttribute('data-tooltip-content', value);
             }
+          } else {
+            element.textContent = value;
           }
         });
 
