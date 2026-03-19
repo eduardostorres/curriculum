@@ -186,6 +186,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
         const languageButton = document.getElementById('language-toggle');
         const languageTooltip = document.getElementById('language-toggle-tooltip');
         const languageBadge = document.getElementById('language-toggle-badge');
+        const languageFlag = document.getElementById('language-toggle-flag');
         const nextLanguageLabel = language === 'en'
           ? controls.language.es
           : controls.language.en;
@@ -204,6 +205,10 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           languageBadge.textContent = language === 'en'
             ? controls.badges.langEn
             : controls.badges.langEs;
+        }
+
+        if (languageFlag) {
+          languageFlag.textContent = language === 'en' ? '🇺🇸' : '🇲🇽';
         }
       };
 
@@ -238,7 +243,7 @@ const fallbackMetaJson = JSON.stringify(fallbackMeta).replace(/</g, "\\u003c");
           title="Cambiar a inglés"
           data-tooltip-content="Cambiar a inglés"
         >
-          🌐 <span id="language-toggle-badge">ES</span>
+          <span id="language-toggle-flag" aria-hidden="true">🇲🇽</span> <span id="language-toggle-badge">ES</span>
         </button>
         <span class="header-tooltip" id="language-toggle-tooltip" role="tooltip">Cambiar a inglés</span>
       </div>
